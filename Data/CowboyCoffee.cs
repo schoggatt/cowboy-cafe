@@ -49,7 +49,7 @@ namespace CowboyCafe.Data
                 List<string> instructions = new List<string>();
 
                 if (Ice) instructions.Add("Add Ice");
-                if (RoomForCream) instructions.Add("Room For Cream");
+                if (RoomForCream) instructions.Add("Room for Cream");
 
                 return instructions;
             }
@@ -61,6 +61,15 @@ namespace CowboyCafe.Data
             get { return roomForCream; }
             set { roomForCream = value; }
         }
+
+        private bool decaf = false;
+        public bool Decaf
+        {
+            get { return decaf; }
+            set { decaf = value; }
+        }
+
+        public override bool Ice { get; set; } = false;
 
     }
 }
