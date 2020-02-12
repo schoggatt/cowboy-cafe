@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    public class JerkedSoda : Drink
+    public class CowboyCoffee : Drink
     {
         public override double Price
         {
@@ -13,11 +13,11 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Small:
-                        return 1.59;
+                        return 0.60;
                     case Size.Medium:
-                        return 2.10;
+                        return 1.10;
                     case Size.Large:
-                        return 2.59;
+                        return 1.60;
                     default:
                         throw new NotImplementedException("NOT A SIZE");
                 }
@@ -31,11 +31,11 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Small:
-                        return 110;
+                        return 3;
                     case Size.Medium:
-                        return 146;
+                        return 5;
                     case Size.Large:
-                        return 198;
+                        return 7;
                     default:
                         throw new NotImplementedException("NOT A SIZE");
                 }
@@ -48,12 +48,19 @@ namespace CowboyCafe.Data
             {
                 List<string> instructions = new List<string>();
 
-                if (!Ice) instructions.Add("Hold Ice");
+                if (Ice) instructions.Add("Add Ice");
+                if (RoomForCream) instructions.Add("Room For Cream");
 
                 return instructions;
             }
         }
 
-        public SodaFlavor Flavor { get; set; }
+        private bool roomForCream = false;
+        public bool RoomForCream
+        {
+            get { return roomForCream; }
+            set { roomForCream = value; }
+        }
+
     }
 }

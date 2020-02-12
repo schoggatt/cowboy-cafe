@@ -10,9 +10,9 @@ namespace CowboyCafe.Data
 
         public abstract uint Calories { get;  }
 
-        public abstract List<string> Ingredients { get;  }
+        public abstract List<string> SpecialInstructions { get;  }
 
-        public abstract Size Size { get;  }
+        public virtual Size Size { get; set; } = Size.Small;
 
         public bool Ice { get; set; } = true;
 
