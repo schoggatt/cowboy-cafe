@@ -4,8 +4,14 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// Baked beans class that inherits from side class
+    /// </summary>
     public class BakedBeans : Side
     {
+        /// <summary>
+        /// Price of baked beans
+        /// </summary>
         public override double Price
         {
             get
@@ -24,6 +30,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Calories in baked beans
+        /// </summary>
         public override uint Calories
         {
             get
