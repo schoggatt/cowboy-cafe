@@ -4,8 +4,14 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// Coffee class that inherits from the drink class
+    /// </summary>
     public class CowboyCoffee : Drink
     {
+        /// <summary>
+        /// The price of a coffee
+        /// </summary>
         public override double Price
         {
             get
@@ -24,6 +30,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// The amount of calories in a coffee
+        /// </summary>
         public override uint Calories
         {
             get
@@ -42,6 +51,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Special instructions for a coffee
+        /// </summary>
         public override List<string> SpecialInstructions
         {
             get
@@ -55,6 +67,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Whether coffee needs cream or not
+        /// </summary>
         private bool roomForCream = false;
         public bool RoomForCream
         {
@@ -62,6 +77,9 @@ namespace CowboyCafe.Data
             set { roomForCream = value; }
         }
 
+        /// <summary>
+        /// Whether coffee is decaf
+        /// </summary>
         private bool decaf = false;
         public bool Decaf
         {
@@ -69,6 +87,9 @@ namespace CowboyCafe.Data
             set { decaf = value; }
         }
 
+        /// <summary>
+        /// Default ice to false
+        /// </summary>
         public override bool Ice { get; set; } = false;
 
     }
