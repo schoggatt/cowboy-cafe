@@ -22,6 +22,11 @@
             <TextBlock TextAlignment="Center">Entrees</TextBlock>
             <Button Name = "AddAngryChicken">Angry Chicken</Button>
             <Button Name ="AddCowpokeChili">Cowpoke Chili</Button>
+            <Button Name ="AddRustlerRibs">Rustler's Ribs</Button>
+            <Button Name ="AddPecosPulledPork">Pecos Pulled Pork</Button>
+            <Button Name ="AddTrailBurger">Trail Burger</Button>
+            <Button Name ="AddDakotaDoubleBurger">Dakota Double Burger</Button>
+            <Button Name ="AddTexasTripleBurger">Texas Triple Burger</Button>
         </StackPanel>
         <StackPanel Grid.Column="1">
             <TextBlock TextAlignment="Center">Side</TextBlock>
@@ -30,9 +35,16 @@
             <Button Name ="AddBakedBeans">Baked Beans</Button>
             <Button Name ="AddCornDodgers">Corn Dodgers</Button>
         </StackPanel>
+        <StackPanel Grid.Column="2">
+            <TextBlock TextAlignment="Center">Drinks</TextBlock>
+            <Button Name ="AddJerkedSoda">Pan De Campo</Button>
+            <Button Name ="AddTexasTea">Chili Cheese Fries</Button>
+            <Button Name ="AddCowboyCoffee">Baked Beans</Button>
+            <Button Name ="AddWater">Water</Button>
+        </StackPanel>
         <StackPanel Grid.Column="3">
             <TextBlock TextAlignment="Center">Order List</TextBlock>
-            <ListBox Name ="OrderList" Height="300"></ListBox>
+            <ListBox Name ="OrderList" Height="500"></ListBox>
         </StackPanel>
     </Grid>
 </UserControl>
