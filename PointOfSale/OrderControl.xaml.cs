@@ -23,7 +23,7 @@ namespace PointOfSale
         {
             InitializeComponent();
 
-            //Entrees
+            //Entrees handlers
 
             AddAngryChicken.Click += AddAngryChickenButton_Click;
             AddCowpokeChili.Click += AddCowpokeChiliButton_Click;
@@ -33,14 +33,14 @@ namespace PointOfSale
             AddPecosPulledPork.Click += AddPecosPulledPorkButton_Click;
             AddRustlerRibs.Click += AddRustlersRibsButton_Click;
 
-            //Sides
+            //Sides handlers
 
             AddBakedBeans.Click += AddBakedBeansButton_Click;
             AddPanDeCampo.Click += AddPanDeCampoButton_Click;
             AddCornDodgers.Click += AddPanDeCampoButton_Click;
             AddChiliCheeseFries.Click += AddChiliCheeseFriesButton_Click;
 
-            //Drink
+            //Drink handlers
 
             AddJerkedSoda.Click += AddJerkedSodaButton_Click;
             AddWater.Click += AddWaterButton_Click;
@@ -49,7 +49,7 @@ namespace PointOfSale
             
         }
 
-        //Entree Handlers
+        //Entree handlers adds new object to listbox on click
 
         private void AddAngryChickenButton_Click(object sender, RoutedEventArgs arg)
         {
@@ -86,7 +86,7 @@ namespace PointOfSale
             OrderList.Items.Add(new RustlersRibs());
         }
 
-        //Side Handlers
+        //Side handlers adds new object to listbox on click
 
         private void AddBakedBeansButton_Click(object sender, RoutedEventArgs arg)
         {
@@ -108,7 +108,7 @@ namespace PointOfSale
             OrderList.Items.Add(new CornDodgers());
         }
 
-        //Drinks
+        //Drink handlers adds new object to listbox on click
 
         private void AddTexasTeaButton_Click(object sender, RoutedEventArgs arg)
         {

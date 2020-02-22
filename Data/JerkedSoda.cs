@@ -71,6 +71,10 @@ namespace CowboyCafe.Data
         /// </summary>
         public SodaFlavor Flavor { get; set; }
 
+        /// <summary>
+        /// Converts object to string when called
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             string flavor;

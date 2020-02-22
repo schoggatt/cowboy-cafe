@@ -99,11 +99,14 @@ namespace CowboyCafe.Data
             switch (Size)
             {
                 case Size.Small:
-                    return "Small Texas Tea";
+                    if (Sweet) return "Small Texas Sweet Tea";
+                    return "Small Texas Plain Tea";
                 case Size.Medium:
-                    return "Medium Texas Tea";
+                    if (Sweet) return "Medium Texas Sweet Tea";
+                    return "Medium Texas Plain Tea";
                 case Size.Large:
-                    return "Large Texas Tea";
+                    if (Sweet) return "Large Texas Sweet Tea";
+                    return "Large Texas Plain Tea";
                 default:
                     throw new NotImplementedException("NOT A SIZE");
             }

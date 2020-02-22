@@ -51,16 +51,20 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Converts object to string when called
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             switch (Size)
             {
                 case Size.Small:
-                    return "Small Pan De Campo";
+                    return "Small Pan de Campo";
                 case Size.Medium:
-                    return "Medium Pan De Campo";
+                    return "Medium Pan de Campo";
                 case Size.Large:
-                    return "Large Pan De Campo";
+                    return "Large Pan de Campo";
                 default:
                     throw new NotImplementedException("NOT A SIZE");
             }

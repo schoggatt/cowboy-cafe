@@ -57,6 +57,10 @@ namespace CowboyCafe.Data
             set { lemon = value; }
         }
 
+        /// <summary>
+        /// Converts object to string when called
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             switch (Size)

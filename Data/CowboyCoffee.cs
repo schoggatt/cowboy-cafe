@@ -92,6 +92,10 @@ namespace CowboyCafe.Data
         /// </summary>
         public override bool Ice { get; set; } = false;
 
+        /// <summary>
+        /// Converts object to string when called
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             switch (Size)

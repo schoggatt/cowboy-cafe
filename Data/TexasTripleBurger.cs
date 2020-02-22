@@ -155,6 +155,10 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Converts object to string when called
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Texas Triple Burger";
