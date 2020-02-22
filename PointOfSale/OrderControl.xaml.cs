@@ -22,9 +22,31 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
+
+            //Entrees
+
             AddAngryChicken.Click += AddAngryChickenButton_Click;
-            AddBakedBeans.Click += AddBakedBeansButton_Click;
             AddCowpokeChili.Click += AddCowpokeChiliButton_Click;
+            AddTrailBurger.Click += AddTrailBurgerButton_Click;
+            AddDakotaDoubleBurger.Click += AddDakotaDoubleBurgerButton_Click;
+            AddTexasTripleBurger.Click += AddTexasTripleBurgerButton_Click;
+            AddPecosPulledPork.Click += AddPecosPulledPorkButton_Click;
+            AddRustlerRibs.Click += AddRustlersRibsButton_Click;
+
+            //Sides
+
+            AddBakedBeans.Click += AddBakedBeansButton_Click;
+            AddPanDeCampo.Click += AddPanDeCampoButton_Click;
+            AddCornDodgers.Click += AddPanDeCampoButton_Click;
+            AddChiliCheeseFries.Click += AddChiliCheeseFriesButton_Click;
+
+            //Drink
+
+            AddJerkedSoda.Click += AddJerkedSodaButton_Click;
+            AddWater.Click += AddWaterButton_Click;
+            AddCowboyCoffee.Click += AddCowboyCoffeeButton_Click;
+            AddTexasTea.Click += AddTexasTeaButton_Click;
+            
         }
 
         //Entree Handlers
@@ -59,6 +81,11 @@ namespace PointOfSale
             OrderList.Items.Add(new TexasTripleBurger());
         }
 
+        private void AddRustlersRibsButton_Click(object sender, RoutedEventArgs arg)
+        {
+            OrderList.Items.Add(new RustlersRibs());
+        }
+
         //Side Handlers
 
         private void AddBakedBeansButton_Click(object sender, RoutedEventArgs arg)
@@ -71,7 +98,7 @@ namespace PointOfSale
             OrderList.Items.Add(new ChiliCheeseFries());
         }
 
-        private void AddChiliPanDeCampoButton_Click(object sender, RoutedEventArgs arg)
+        private void AddPanDeCampoButton_Click(object sender, RoutedEventArgs arg)
         {
             OrderList.Items.Add(new PanDeCampo());
         }

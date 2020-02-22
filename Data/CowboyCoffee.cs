@@ -92,5 +92,22 @@ namespace CowboyCafe.Data
         /// </summary>
         public override bool Ice { get; set; } = false;
 
+        public override string ToString()
+        {
+            switch (Size)
+            {
+                case Size.Small:
+                    if (Decaf) return "Small Decaf Cowboy Coffee";
+                    return "Small Cowboy Coffee";
+                case Size.Medium:
+                    if (Decaf) return "Medium Decaf Cowboy Coffee";
+                    return "Medium Cowboy Coffee";
+                case Size.Large:
+                    if (Decaf) return "Large Decaf Cowboy Coffee";
+                    return "Large Cowboy Coffee";
+                default:
+                    throw new NotImplementedException("NOT A SIZE");
+            }
+        }
     }
 }

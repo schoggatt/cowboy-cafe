@@ -66,5 +66,10 @@ namespace CowboyCafe.Data
                 return 528;
             }
         }
+
+        public override string ToString()
+        {
+            return "Pecos Pulled Pork";
+        }
     }
 }

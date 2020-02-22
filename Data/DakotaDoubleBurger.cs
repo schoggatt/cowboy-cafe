@@ -132,5 +132,10 @@ namespace CowboyCafe.Data
                 return 464;
             }
         }
+
+        public override string ToString()
+        {
+            return "Dakota Double Burger";
+        }
     }
 }

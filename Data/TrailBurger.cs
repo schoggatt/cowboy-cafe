@@ -99,5 +99,10 @@ namespace CowboyCafe.Data
                 return 288;
             }
         }
+
+        public override string ToString()
+        {
+            return "Trail Burger";
+        }
     }
 }

@@ -37,9 +37,9 @@
         </StackPanel>
         <StackPanel Grid.Column="2">
             <TextBlock TextAlignment="Center">Drinks</TextBlock>
-            <Button Name ="AddJerkedSoda">Pan De Campo</Button>
-            <Button Name ="AddTexasTea">Chili Cheese Fries</Button>
-            <Button Name ="AddCowboyCoffee">Baked Beans</Button>
+            <Button Name ="AddJerkedSoda">Jerked Soda</Button>
+            <Button Name ="AddTexasTea">Texas Tea</Button>
+            <Button Name ="AddCowboyCoffee">Cowboy Coffee</Button>
             <Button Name ="AddWater">Water</Button>
         </StackPanel>
         <StackPanel Grid.Column="3">
