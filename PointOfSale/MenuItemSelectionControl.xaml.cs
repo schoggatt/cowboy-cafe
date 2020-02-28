@@ -17,7 +17,7 @@ namespace PointOfSale
     /// <summary>
     /// Interaction logic for MenuItemSelectionControl.xaml
     /// </summary>
-    public partial class MenuItemSelectionControl : UserControl
+    public partial class MenuItemSelectionControl : OrderControl
     {
         public MenuItemSelectionControl()
         {
