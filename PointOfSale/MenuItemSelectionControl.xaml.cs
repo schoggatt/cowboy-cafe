@@ -17,7 +17,7 @@ namespace PointOfSale
     /// <summary>
     /// Interaction logic for MenuItemSelectionControl.xaml
     /// </summary>
-    public partial class MenuItemSelectionControl : OrderControl
+    public partial class MenuItemSelectionControl : UserControl
     {
         public MenuItemSelectionControl()
         {
@@ -52,7 +52,10 @@ namespace PointOfSale
 
         private void AddAngryChickenButton_Click(object sender, RoutedEventArgs arg)
         {
-           
+            if (DataContext is Order order)
+            {
+                order.Add(new AngryChicken());
+            }
         }
 
         private void AddCowpokeChiliButton_Click(object sender, RoutedEventArgs arg)

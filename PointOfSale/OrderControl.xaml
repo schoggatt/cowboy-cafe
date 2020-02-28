@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PointOfSale.UserControl"
+﻿<UserControl x:Class="PointOfSale.OrderControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,6 +7,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <Button Height="45" Width="125" Grid.Row="0" Grid.Column="0" Margin="6,10,19,26">Item Selection</Button>
+        <Button Height="45" Width="125" Grid.Row="0" Grid.Column="1" RenderTransformOrigin="1.103,0.549" Grid.ColumnSpan="2" Margin="51,10,124,25">Cancel Order</Button>
+        <Button Height="45" Width="125" Grid.Row="0" Grid.Column="2" Margin="89,10,-64,25">Complete Order</Button>
+
+        <local:MenuItemSelectionControl Grid.ColumnSpan="3" Margin="0,68,-241,-381"></local:MenuItemSelectionControl>
+        <local:OrderSummaryControl Grid.Column="2" Margin="236,18,-340,-360" />
     </Grid>
 </UserControl>

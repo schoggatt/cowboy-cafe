@@ -16,7 +16,7 @@ namespace PointOfSale
     /// <summary>
     /// Interaction logic for OrderSummaryControl.xaml
     /// </summary>
-    public partial class OrderSummaryControl : OrderControl
+    public partial class OrderSummaryControl : UserControl
     {
         public OrderSummaryControl()
         {

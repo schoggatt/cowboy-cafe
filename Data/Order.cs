@@ -11,16 +11,18 @@ namespace CowboyCafe.Data
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private double subtotal = 0;
+
         public double Subtotal
         {
             get
             {
-                double total = 0;
-                foreach(IOrderItem item in Items)
+                double subtotal = 0;
+                foreach (IOrderItem item in Items)
                 {
-                    total += item.Price;
+                    subtotal += item.Price;
                 }
-                return total;
+                return subtotal;
             }
         }
 
@@ -38,19 +40,20 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return orderNumberTracker++; 
+                return orderNumberTracker++;
             }
         }
 
         public void Add(IOrderItem item)
         {
-            if (orderList != null && orderList.Contains(item)) orderList.Add(item);
+            subtotal += item.Price;
+            orderList.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
         }
 
         public void Remove(IOrderItem item)
         {
-            if(orderList != null && orderList.Contains(item)) orderList.Remove(item);
+            if (orderList != null && orderList.Contains(item)) orderList.Remove(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
         }
     }
