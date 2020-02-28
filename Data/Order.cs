@@ -7,6 +7,8 @@ namespace CowboyCafe.Data
 {
     public class Order : INotifyPropertyChanged
     {
+        private static uint orderNumberTracker = 0;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public double Subtotal
@@ -28,18 +30,28 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return orderList;
+                return orderList.ToArray();
+            }
+        }
+
+        public uint OrderNumber
+        {
+            get
+            {
+                return orderNumberTracker++; 
             }
         }
 
         public void Add(IOrderItem item)
         {
-            orderList.Add(item);
+            if (orderList != null && orderList.Contains(item)) orderList.Add(item);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
         }
 
         public void Remove(IOrderItem item)
         {
-            orderList.Remove(item);
+            if(orderList != null && orderList.Contains(item)) orderList.Remove(item);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
         }
     }
 }

@@ -58,7 +58,11 @@ namespace PointOfSale
 
         private void AddCowpokeChiliButton_Click(object sender, RoutedEventArgs arg)
         {
-            OrderList.Items.Add(new CowpokeChili());
+            if (DataContext is Order order)
+            {
+                order.Add(new CowpokeChili());
+                OrderList.Items.Add(new CowpokeChili());
+            }  
         }
 
         private void AddPecosPulledPorkButton_Click(object sender, RoutedEventArgs arg)
