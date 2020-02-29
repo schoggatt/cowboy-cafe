@@ -11,8 +11,6 @@ namespace CowboyCafe.Data
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private double subtotal = 0;
-
         public double Subtotal
         {
             get
@@ -54,7 +52,6 @@ namespace CowboyCafe.Data
 
         public void Add(IOrderItem item)
         {
-            subtotal += item.Price;
             orderList.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
@@ -62,7 +59,7 @@ namespace CowboyCafe.Data
 
         public void Remove(IOrderItem item)
         {
-            if (orderList != null && orderList.Contains(item)) orderList.Remove(item);
+            orderList.Remove(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
