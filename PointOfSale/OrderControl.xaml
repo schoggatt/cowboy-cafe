@@ -22,6 +22,6 @@
         <Button Height="45" Width="125" Grid.Row="0" Grid.Column="2" Margin="89,10,-64,25">Complete Order</Button>
 
         <local:MenuItemSelectionControl Grid.ColumnSpan="3" Margin="0,68,-241,-381"></local:MenuItemSelectionControl>
-        <local:OrderSummaryControl Grid.Column="2" Margin="236,18,-340,-360" />
+        <local:OrderSummaryControl Grid.Column="2" Margin="236,18,-302,-360" />
     </Grid>
 </UserControl>
