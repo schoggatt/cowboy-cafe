@@ -8,20 +8,17 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="550"/>
+            <ColumnDefinition Width="250"/>
         </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Name ="ItemSelectionButton" Height="45" Width="125" Grid.Column="0" VerticalAlignment="Top" Margin="10">Item Selection</Button>
+            <Button Name ="CancelOrderButton" Height="45" Width="125" Grid.Column="0" VerticalAlignment="Top" Margin="10">Cancel Order</Button>
+            <Button Name ="CompleteOrderButton" Height="45" Width="125" Grid.Column="0" VerticalAlignment="Top" Margin="10">Complete Order</Button>
+        </StackPanel>
 
-        <Button Height="45" Width="125" Grid.Row="0" Grid.Column="0" Margin="6,10,19,26">Item Selection</Button>
-        <Button Height="45" Width="125" Grid.Row="0" Grid.Column="1" RenderTransformOrigin="1.103,0.549" Grid.ColumnSpan="2" Margin="51,10,124,25">Cancel Order</Button>
-        <Button Height="45" Width="125" Grid.Row="0" Grid.Column="2" Margin="89,10,-64,25">Complete Order</Button>
-
-        <local:MenuItemSelectionControl Grid.ColumnSpan="3" Margin="0,68,-241,-381"></local:MenuItemSelectionControl>
-        <local:OrderSummaryControl Grid.Column="2" Margin="236,18,-302,-360" />
+        <local:MenuItemSelectionControl Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Padding="10"/>
+        <local:OrderSummaryControl Grid.Column="1" VerticalAlignment="Stretch" Padding="10"/>
     </Grid>
 </UserControl>

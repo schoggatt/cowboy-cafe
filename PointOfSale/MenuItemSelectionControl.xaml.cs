@@ -68,71 +68,110 @@ namespace PointOfSale
 
         private void AddPecosPulledPorkButton_Click(object sender, RoutedEventArgs arg)
         {
-            
+            if (DataContext is Order order)
+            {
+                order.Add(new PecosPulledPork());
+            }
         }
 
         private void AddTrailBurgerButton_Click(object sender, RoutedEventArgs arg)
         {
-           
+            if (DataContext is Order order)
+            {
+                order.Add(new TrailBurger());
+            }
         }
 
         private void AddDakotaDoubleBurgerButton_Click(object sender, RoutedEventArgs arg)
         {
-            
+            if (DataContext is Order order)
+            {
+                order.Add(new DakotaDoubleBurger());
+            }
         }
 
         private void AddTexasTripleBurgerButton_Click(object sender, RoutedEventArgs arg)
         {
-            
+            if (DataContext is Order order)
+            {
+                order.Add(new TexasTripleBurger());
+            }
         }
 
         private void AddRustlersRibsButton_Click(object sender, RoutedEventArgs arg)
         {
-            
+            if (DataContext is Order order)
+            {
+                order.Add(new RustlersRibs());
+            }
         }
 
         //Side handlers adds new object to listbox on click
 
         private void AddBakedBeansButton_Click(object sender, RoutedEventArgs arg)
         {
-            
+            if (DataContext is Order order)
+            {
+                order.Add(new BakedBeans());
+            }
         }
 
         private void AddChiliCheeseFriesButton_Click(object sender, RoutedEventArgs arg)
         {
-           
+            if (DataContext is Order order)
+            {
+                order.Add(new ChiliCheeseFries());
+            }
         }
 
         private void AddPanDeCampoButton_Click(object sender, RoutedEventArgs arg)
         {
-            
+            if (DataContext is Order order)
+            {
+                order.Add(new PanDeCampo());
+            }
         }
 
         private void AddCornDodgersButton_Click(object sender, RoutedEventArgs arg)
         {
-            
+            if (DataContext is Order order)
+            {
+                order.Add(new CornDodgers());
+            }
         }
 
         //Drink handlers adds new object to listbox on click
 
         private void AddTexasTeaButton_Click(object sender, RoutedEventArgs arg)
         {
-            
+            if (DataContext is Order order)
+            {
+                order.Add(new TexasTea());
+            }
         }
 
         private void AddWaterButton_Click(object sender, RoutedEventArgs arg)
         {
-            
+            if (DataContext is Order order)
+            {
+                order.Add(new Water());
+            }
         }
 
         private void AddCowboyCoffeeButton_Click(object sender, RoutedEventArgs arg)
         {
-            
+            if (DataContext is Order order)
+            {
+                order.Add(new CowboyCoffee());
+            }
         }
 
         private void AddJerkedSodaButton_Click(object sender, RoutedEventArgs arg)
         {
-            
+            if (DataContext is Order order)
+            {
+                order.Add(new JerkedSoda());
+            }
         }
     }
 }

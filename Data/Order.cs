@@ -7,7 +7,7 @@ namespace CowboyCafe.Data
 {
     public class Order : INotifyPropertyChanged
     {
-        private static uint orderNumberTracker = 0;
+        private static uint orderNumberTracker = 1;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -44,6 +44,14 @@ namespace CowboyCafe.Data
             }
         }
 
+        public string OrderString
+        {
+            get
+            {
+                return "Order " + OrderNumber.ToString();
+            }
+        }
+
         public void Add(IOrderItem item)
         {
             subtotal += item.Price;
@@ -58,5 +66,7 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
+
+        
     }
 }
