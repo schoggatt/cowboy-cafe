@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale" 
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="700">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="550"/>
@@ -18,7 +18,7 @@
             <Button Name ="CompleteOrderButton" Height="45" Width="125" Grid.Column="0" VerticalAlignment="Top" Margin="10">Complete Order</Button>
         </StackPanel>
 
-        <local:MenuItemSelectionControl Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Padding="10"/>
-        <local:OrderSummaryControl Grid.Column="1" VerticalAlignment="Stretch" Padding="10"/>
+        <local:MenuItemSelectionControl Grid.Column="0" VerticalAlignment="Top" Padding="10" Margin="0,50,0,0"/>
+        <local:OrderSummaryControl Padding="10" Grid.ColumnSpan="2" Margin="444,0,106,0"/>
     </Grid>
 </UserControl>

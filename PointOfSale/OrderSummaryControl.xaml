@@ -13,7 +13,7 @@
     </UserControl.Resources>
     <StackPanel>
         <TextBlock Text="{Binding Path=OrderString}"/>
-        <ListBox ItemsSource="{Binding Path=Items}" MaxHeight="380">
+        <ListBox ItemsSource="{Binding Path=Items}" Height="380">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

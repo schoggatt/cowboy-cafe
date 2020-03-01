@@ -15,6 +15,7 @@ namespace CowboyCafe.DataTests.UnitTests
         }
 
         [Fact]
+
         //Should be able to add Items
 
         public void ShouldBeAbleToAddItems()
@@ -27,6 +28,7 @@ namespace CowboyCafe.DataTests.UnitTests
         }
 
         [Fact]
+
         //Should be able to remove items
 
         public void ShouldBeAbleToRemoveItems()
@@ -39,6 +41,7 @@ namespace CowboyCafe.DataTests.UnitTests
         }
 
         [Fact]
+
         //Should be able to get the list of items
 
         public void ShouldBeAbleToGetEnumeration()
@@ -64,6 +67,7 @@ namespace CowboyCafe.DataTests.UnitTests
         [InlineData(new double[] { -4, 10, -3 })]
         [InlineData(new double[] { 1.3453434463464})]
         [InlineData(new double[] { double.NaN })]
+
         //Subtotal should be sum of prices
 
         public void ShouldBeSumOfItemPrices(double[] prices)
@@ -82,8 +86,9 @@ namespace CowboyCafe.DataTests.UnitTests
         }
 
         [Theory]
-        [InlineData("Price")]
+        [InlineData("Subtotal")]
         [InlineData("Items")]
+
         //Add Should trigger PropertyChanged for Items and Price
 
         public void AddShouldTriggerPropertyChanged(string property)
@@ -94,8 +99,9 @@ namespace CowboyCafe.DataTests.UnitTests
         }
 
         [Theory]
-        [InlineData("Price")]
+        [InlineData("Subtotal")]
         [InlineData("Items")]
+
         //Removing Should trigger PropertyChanged for Items and Price
 
         public void RemoveShouldTriggerPropertyChanged(string property)

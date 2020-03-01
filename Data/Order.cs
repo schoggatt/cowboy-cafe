@@ -5,12 +5,24 @@ using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// Order class to store menu item objects
+    /// </summary>
     public class Order : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Stores the overall order number of all orders
+        /// </summary>
         private static uint orderNumberTracker = 1;
 
+        /// <summary>
+        /// Handler for when properties change in this class
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// The total of all prices for items in this object
+        /// </summary>
         public double Subtotal
         {
             get
@@ -24,8 +36,10 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// List of menu items stored in a list
+        /// </summary>
         List<IOrderItem> orderList = new List<IOrderItem>();
-
         public IEnumerable<IOrderItem> Items
         {
             get
@@ -34,6 +48,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Returns the order number after incrementing it
+        /// </summary>
         public uint OrderNumber
         {
             get
@@ -42,6 +59,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Returns an order string to print for the XAML code
+        /// </summary>
         public string OrderString
         {
             get
@@ -50,6 +70,10 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Adds a item to the list
+        /// </summary>
+        /// <param name="item"></param>
         public void Add(IOrderItem item)
         {
             orderList.Add(item);
@@ -57,6 +81,10 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
+        /// <summary>
+        /// Removes an item from the list
+        /// </summary>
+        /// <param name="item"></param>
         public void Remove(IOrderItem item)
         {
             orderList.Remove(item);
