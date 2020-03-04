@@ -20,8 +20,13 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
                         <TextBlock Text="{Binding}"/>
                         <TextBlock Text="{Binding Price, StringFormat = c}"  HorizontalAlignment="Right"/>
+                        <ListView ItemsSource="{Binding Path=SpecialInstructions}" Grid.Row="1" Grid.ColumnSpan="2"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
