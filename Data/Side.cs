@@ -12,7 +12,19 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the size of the entree
         /// </summary>
-        public virtual Size Size { get; set; } = Size.Small;
+        private Size size = Size.Small; 
+
+        public virtual Size Size
+        {
+            get
+            {
+                return size;
+            }
+            set
+            {
+                size = value;
+            }
+        }
 
         /// <summary>
         /// Gets the price of the side
@@ -27,6 +39,6 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Not implemented as of now
         /// </summary>
-        public List<string> SpecialInstructions => throw new NotImplementedException();
+        public List<string> SpecialInstructions => new List<string>();
     }
 }

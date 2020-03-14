@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// Soda class that inherits from the drink class
     /// </summary>
-    public class JerkedSoda : Drink
+    public class JerkedSoda : Drink, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Price of a soda
         /// </summary>
@@ -69,7 +72,34 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Flavor for a soda
         /// </summary>
-        public SodaFlavor Flavor { get; set; }
+        SodaFlavor flavor = SodaFlavor.CreamSoda; 
+
+        public SodaFlavor Flavor
+        {
+            get { return flavor; }
+            set
+            {
+                flavor = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        /// <summary>
+        /// Default ice to false
+        /// </summary>
+        private bool ice = true;
+
+        public override bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <summary>
         /// Converts object to string when called
@@ -97,7 +127,8 @@ namespace CowboyCafe.Data
                     flavor = "Sarsparilla";
                     break; 
                 default:
-                    throw new NotImplementedException("NOT A FLAVOR");
+                    flavor = "";
+                    break;
             }
 
             switch (Size)
