@@ -105,6 +105,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Ice in a tea
+        /// </summary>
         private bool ice = true;
 
         public override bool Ice
@@ -115,6 +118,19 @@ namespace CowboyCafe.Data
                 ice = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        private Size size = Size.Small;
+
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
             }
         }
 

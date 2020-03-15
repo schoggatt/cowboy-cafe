@@ -18,6 +18,9 @@ namespace PointOfSale.Customizations
     /// </summary>
     public partial class CowpokeChiliCustomization : UserControl
     {
+        /// <summary>
+        /// Constructor for this class
+        /// </summary>
         public CowpokeChiliCustomization()
         {
             InitializeComponent();

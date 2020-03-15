@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// Chili cheese fries class that inherits from side class
     /// </summary>
-    public class ChiliCheeseFries : Side
+    public class ChiliCheeseFries : Side, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Price of chili cheese fries
         /// </summary>
@@ -48,6 +51,22 @@ namespace CowboyCafe.Data
                     default:
                         throw new NotImplementedException("NOT A SIZE");
                 }
+            }
+        }
+
+        /// <summary>
+        /// Size of chili cheese fries
+        /// </summary>
+        private Size size = Size.Small;
+
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
             }
         }
 

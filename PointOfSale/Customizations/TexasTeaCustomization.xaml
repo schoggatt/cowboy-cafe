@@ -6,11 +6,13 @@
              xmlns:local="clr-namespace:PointOfSale.Customizations"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
-        <StackPanel>
-            <CheckBox IsChecked="{Binding Path=Ice}" VerticalAlignment="Center">Ice</CheckBox>
-            <CheckBox IsChecked="{Binding Path=Sweet}">Sweet</CheckBox>
-            <CheckBox IsChecked="{Binding Path=Lemon}">Lemon</CheckBox>
-        </StackPanel>
+    <StackPanel Margin="10">
+        <CheckBox IsChecked="{Binding Path=Ice}">Ice</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Sweet}">Sweet</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Lemon}">Lemon</CheckBox>
+        <TextBlock>Size</TextBlock>
+        <RadioButton GroupName="Size" Name="Small">Small</RadioButton>
+        <RadioButton GroupName="Size" Name="Medium">Medium</RadioButton>
+        <RadioButton GroupName="Size" Name="Large">Large</RadioButton>
     </StackPanel>
 </UserControl>

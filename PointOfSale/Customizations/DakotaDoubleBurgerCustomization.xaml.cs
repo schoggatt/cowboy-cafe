@@ -18,6 +18,9 @@ namespace PointOfSale.Customizations
     /// </summary>
     public partial class DakotaDoubleBurgerCustomization : UserControl
     {
+        /// <summary>
+        /// Constructor for the class
+        /// </summary>
         public DakotaDoubleBurgerCustomization()
         {
             InitializeComponent();

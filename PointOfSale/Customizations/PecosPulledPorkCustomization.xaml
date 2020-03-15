@@ -6,10 +6,8 @@
              xmlns:local="clr-namespace:PointOfSale.Customizations"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
-        <StackPanel>
-            <CheckBox IsChecked="{Binding Path=Bread}" VerticalAlignment="Center">Bread</CheckBox>
-            <CheckBox IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
-        </StackPanel>
+    <StackPanel Margin="10">
+        <CheckBox IsChecked="{Binding Path=Bread}">Bread</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
     </StackPanel>
 </UserControl>

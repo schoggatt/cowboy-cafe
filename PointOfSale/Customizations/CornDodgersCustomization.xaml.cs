@@ -16,16 +16,17 @@ using Size = CowboyCafe.Data.Size;
 namespace PointOfSale.Customizations
 {
     /// <summary>
-    /// Interaction logic for CowboyCoffeeCustomization.xaml
+    /// Interaction logic for CornDodgersCustomization.xaml
     /// </summary>
-    public partial class CowboyCoffeeCustomization : UserControl
+    public partial class CornDodgersCustomization : UserControl
     {
         /// <summary>
-        /// Constructor for this class
+        /// Constructor for the class
         /// </summary>
-        public CowboyCoffeeCustomization()
+        public CornDodgersCustomization()
         {
             InitializeComponent();
+
             Small.Checked += SizeSmall_Checked;
             Medium.Checked += SizeMedium_Checked;
             Large.Checked += SizeLarge_Checked;
@@ -38,9 +39,9 @@ namespace PointOfSale.Customizations
         /// <param name="arg"></param>
         private void SizeSmall_Checked(object sender, RoutedEventArgs arg)
         {
-            if (DataContext is CowboyCoffee coffee)
+            if (DataContext is CornDodgers corn)
             {
-                coffee.Size = Size.Small;
+                corn.Size = Size.Small;
             }
         }
 
@@ -51,9 +52,9 @@ namespace PointOfSale.Customizations
         /// <param name="arg"></param>
         private void SizeMedium_Checked(object sender, RoutedEventArgs arg)
         {
-            if (DataContext is CowboyCoffee coffee)
+            if (DataContext is CornDodgers corn)
             {
-                coffee.Size = Size.Medium;
+                corn.Size = Size.Medium;
             }
         }
 
@@ -64,9 +65,9 @@ namespace PointOfSale.Customizations
         /// <param name="arg"></param>
         private void SizeLarge_Checked(object sender, RoutedEventArgs arg)
         {
-            if (DataContext is CowboyCoffee coffee)
+            if (DataContext is CornDodgers corn)
             {
-                coffee.Size = Size.Large;
+                corn.Size = Size.Large;
             }
         }
     }

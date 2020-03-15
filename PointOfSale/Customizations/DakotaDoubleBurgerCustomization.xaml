@@ -6,15 +6,13 @@
              xmlns:local="clr-namespace:PointOfSale.Customizations"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
-        <StackPanel>
-            <CheckBox IsChecked="{Binding Path=Cheese}" VerticalAlignment="Center">Cheese</CheckBox>
-            <CheckBox IsChecked="{Binding Path=Ketchup}">Ketchup</CheckBox>
-            <CheckBox IsChecked="{Binding Path=Mustard}" VerticalAlignment="Center">Mustard</CheckBox>
-            <CheckBox IsChecked="{Binding Path=Bun}">Bun</CheckBox>
-            <CheckBox IsChecked="{Binding Path=Mayo}">Mayo</CheckBox>
-            <CheckBox IsChecked="{Binding Path=Tomato}" VerticalAlignment="Center">Tomato</CheckBox>
-            <CheckBox IsChecked="{Binding Path=Lettuce}">Lettuce</CheckBox>
-        </StackPanel>
+    <StackPanel Margin="10">
+        <CheckBox IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Ketchup}">Ketchup</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Mustard}">Mustard</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Bun}">Bun</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Mayo}">Mayo</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Tomato}">Tomato</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Lettuce}">Lettuce</CheckBox>
     </StackPanel>
 </UserControl>

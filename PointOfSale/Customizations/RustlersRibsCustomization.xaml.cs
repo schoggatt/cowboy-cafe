@@ -14,14 +14,14 @@ using System.Windows.Shapes;
 namespace PointOfSale.Customizations
 {
     /// <summary>
-    /// Interaction logic for TexasTripleBurgerCustomization.xaml
+    /// Interaction logic for RustlersRibsCustomization.xaml
     /// </summary>
-    public partial class TexasTripleBurgerCustomization : UserControl
+    public partial class RustlersRibsCustomization : UserControl
     {
         /// <summary>
-        /// Constructor for the class
+        /// Constructor for classes
         /// </summary>
-        public TexasTripleBurgerCustomization()
+        public RustlersRibsCustomization()
         {
             InitializeComponent();
         }

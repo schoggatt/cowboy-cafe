@@ -115,6 +115,22 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Size of a cowboy coffee
+        /// </summary>
+        private Size size = Size.Small;
+
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            }
+        }
+
+        /// <summary>
         /// Converts object to string when called
         /// </summary>
         /// <returns></returns>

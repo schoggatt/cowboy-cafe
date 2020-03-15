@@ -16,57 +16,58 @@ using Size = CowboyCafe.Data.Size;
 namespace PointOfSale.Customizations
 {
     /// <summary>
-    /// Interaction logic for CowboyCoffeeCustomization.xaml
+    /// Interaction logic for BakedBeansCustomization.xaml
     /// </summary>
-    public partial class CowboyCoffeeCustomization : UserControl
+    public partial class BakedBeansCustomization : UserControl
     {
         /// <summary>
-        /// Constructor for this class
+        /// Constructor for class
         /// </summary>
-        public CowboyCoffeeCustomization()
+        public BakedBeansCustomization()
         {
             InitializeComponent();
+
             Small.Checked += SizeSmall_Checked;
             Medium.Checked += SizeMedium_Checked;
             Large.Checked += SizeLarge_Checked;
         }
 
         /// <summary>
-        /// Small size event handler
+        /// Small size button event handler
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="arg"></param>
         private void SizeSmall_Checked(object sender, RoutedEventArgs arg)
         {
-            if (DataContext is CowboyCoffee coffee)
+            if (DataContext is BakedBeans beans)
             {
-                coffee.Size = Size.Small;
+                beans.Size = Size.Small;
             }
         }
 
         /// <summary>
-        /// Medium size event handler
+        /// Medium size button event handler
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="arg"></param>
         private void SizeMedium_Checked(object sender, RoutedEventArgs arg)
         {
-            if (DataContext is CowboyCoffee coffee)
+            if (DataContext is BakedBeans beans)
             {
-                coffee.Size = Size.Medium;
+                beans.Size = Size.Medium;
             }
         }
 
         /// <summary>
-        /// Large size event handler
+        /// Large size button event handler
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="arg"></param>
         private void SizeLarge_Checked(object sender, RoutedEventArgs arg)
         {
-            if (DataContext is CowboyCoffee coffee)
+            if (DataContext is BakedBeans beans)
             {
-                coffee.Size = Size.Large;
+                beans.Size = Size.Large;
             }
         }
     }

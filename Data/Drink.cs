@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// Base class for drinks
     /// </summary>
-    public abstract class Drink : IOrderItem
+    public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Price of a drink
         /// </summary>
@@ -17,17 +20,18 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Calories in a drink
         /// </summary>
-        public abstract uint Calories { get;  }
+        public abstract uint Calories { get; }
 
         /// <summary>
         /// Special instructions for a drink
         /// </summary>
-        public abstract List<string> SpecialInstructions { get;  }
+        public abstract List<string> SpecialInstructions { get; }
 
         /// <summary>
         /// Size of a drink
         /// </summary>
-        public virtual Size Size { get; set; } = Size.Small;
+
+        public abstract Size Size{ get; set; }
 
         /// <summary>
         /// If there is ice in the drink

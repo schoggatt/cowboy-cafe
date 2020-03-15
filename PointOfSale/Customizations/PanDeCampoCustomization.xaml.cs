@@ -16,16 +16,17 @@ using Size = CowboyCafe.Data.Size;
 namespace PointOfSale.Customizations
 {
     /// <summary>
-    /// Interaction logic for CowboyCoffeeCustomization.xaml
+    /// Interaction logic for PanDeCampoCustomization.xaml
     /// </summary>
-    public partial class CowboyCoffeeCustomization : UserControl
+    public partial class PanDeCampoCustomization : UserControl
     {
         /// <summary>
         /// Constructor for this class
         /// </summary>
-        public CowboyCoffeeCustomization()
+        public PanDeCampoCustomization()
         {
             InitializeComponent();
+
             Small.Checked += SizeSmall_Checked;
             Medium.Checked += SizeMedium_Checked;
             Large.Checked += SizeLarge_Checked;
@@ -38,9 +39,9 @@ namespace PointOfSale.Customizations
         /// <param name="arg"></param>
         private void SizeSmall_Checked(object sender, RoutedEventArgs arg)
         {
-            if (DataContext is CowboyCoffee coffee)
+            if (DataContext is PanDeCampo campo)
             {
-                coffee.Size = Size.Small;
+                campo.Size = Size.Small;
             }
         }
 
@@ -51,9 +52,9 @@ namespace PointOfSale.Customizations
         /// <param name="arg"></param>
         private void SizeMedium_Checked(object sender, RoutedEventArgs arg)
         {
-            if (DataContext is CowboyCoffee coffee)
+            if (DataContext is PanDeCampo campo)
             {
-                coffee.Size = Size.Medium;
+                campo.Size = Size.Medium;
             }
         }
 
@@ -64,9 +65,9 @@ namespace PointOfSale.Customizations
         /// <param name="arg"></param>
         private void SizeLarge_Checked(object sender, RoutedEventArgs arg)
         {
-            if (DataContext is CowboyCoffee coffee)
+            if (DataContext is PanDeCampo campo)
             {
-                coffee.Size = Size.Large;
+                campo.Size = Size.Large;
             }
         }
     }
