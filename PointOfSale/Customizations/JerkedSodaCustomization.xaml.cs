@@ -33,9 +33,19 @@ namespace PointOfSale.Customizations
             BirchBeer.Checked += FlavorBirchBeer_Checked;
             CreamSoda.Checked += FlavorCreamSoda_Checked;
 
+            Sarsparilla.Loaded += InitFlavor_Checked;
+            RootBeer.Loaded += InitFlavor_Checked;
+            OrangeSoda.Loaded += InitFlavor_Checked;
+            BirchBeer.Loaded += InitFlavor_Checked;
+            CreamSoda.Loaded += InitFlavor_Checked;
+
             Small.Checked += SizeSmall_Checked;
             Medium.Checked += SizeMedium_Checked;
             Large.Checked += SizeLarge_Checked;
+
+            Small.Loaded += Init_Checked;
+            Medium.Loaded += Init_Checked;
+            Large.Loaded += Init_Checked;
         }
 
         /// <summary>
@@ -139,6 +149,60 @@ namespace PointOfSale.Customizations
             if (DataContext is JerkedSoda soda)
             {
                 soda.Size = Size.Large;
+            }
+        }
+
+        /// <summary>
+        /// Checks the right button when loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="arg"></param>
+        private void Init_Checked(object sender, RoutedEventArgs arg)
+        {
+            if (DataContext is JerkedSoda soda)
+            {
+                switch (soda.Size)
+                {
+                    case Size.Small:
+                        Small.IsChecked = true;
+                        break;
+                    case Size.Medium:
+                        Medium.IsChecked = true;
+                        break;
+                    case Size.Large:
+                        Large.IsChecked = true;
+                        break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Checks the flavor button when loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="arg"></param>
+        private void InitFlavor_Checked(object sender, RoutedEventArgs arg)
+        {
+            if (DataContext is JerkedSoda soda)
+            {
+                switch (soda.Flavor)
+                {
+                    case SodaFlavor.RootBeer:
+                        RootBeer.IsChecked = true;
+                        break;
+                    case SodaFlavor.Sarsparilla:
+                        Sarsparilla.IsChecked = true;
+                        break;
+                    case SodaFlavor.OrangeSoda:
+                        OrangeSoda.IsChecked = true;
+                        break;
+                    case SodaFlavor.BirchBeer:
+                        BirchBeer.IsChecked = true;
+                        break;
+                    case SodaFlavor.CreamSoda:
+                        CreamSoda.IsChecked = true;
+                        break;
+                }
             }
         }
     }

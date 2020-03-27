@@ -30,6 +30,10 @@ namespace PointOfSale.Customizations
             Small.Checked += SizeSmall_Checked;
             Medium.Checked += SizeMedium_Checked;
             Large.Checked += SizeLarge_Checked;
+
+            Small.Loaded += Init_Checked;
+            Medium.Loaded += Init_Checked;
+            Large.Loaded += Init_Checked;
         }
 
         /// <summary>
@@ -68,6 +72,30 @@ namespace PointOfSale.Customizations
             if (DataContext is ChiliCheeseFries fries)
             {
                 fries.Size = Size.Large;
+            }
+        }
+
+        /// <summary>
+        /// Checks the right button when loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="arg"></param>
+        private void Init_Checked(object sender, RoutedEventArgs arg)
+        {
+            if (DataContext is ChiliCheeseFries chili)
+            {
+                switch (chili.Size)
+                {
+                    case Size.Small:
+                        Small.IsChecked = true;
+                        break;
+                    case Size.Medium:
+                        Medium.IsChecked = true;
+                        break;
+                    case Size.Large:
+                        Large.IsChecked = true;
+                        break;
+                }
             }
         }
     }

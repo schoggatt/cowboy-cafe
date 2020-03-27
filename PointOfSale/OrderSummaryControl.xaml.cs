@@ -27,6 +27,11 @@ namespace PointOfSale
             MainBox.SelectionChanged += MainBox_SelectionChanged;
         }
 
+        /// <summary>
+        /// Removes the item on click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="arg"></param>
         private void RemoveItem_Click(object sender, RoutedEventArgs arg)
         {
             if (DataContext is Order order)
@@ -41,6 +46,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Opens the selection screen when a panel is selected in the list box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="arg"></param>
         private void MainBox_SelectionChanged(object sender, RoutedEventArgs arg)
         {
             if (DataContext is Order order)
