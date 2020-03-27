@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using CowboyCafe.Data;
+using System.ComponentModel;
 
 namespace CowboyCafe.DataTests
 {
@@ -116,6 +117,58 @@ namespace CowboyCafe.DataTests
             };
             if (!ice) Assert.Collection(soda.SpecialInstructions, item => Assert.Equal("Hold Ice", item));
             if (ice) Assert.Empty(soda.SpecialInstructions);
+        }
+
+        [Fact]
+        public void JerkedSodaImplementsINotifyPropertyChanged()
+        {
+            var soda = new JerkedSoda();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(soda);
+        }
+
+        [Fact]
+        public void ChangingSizePropertyShouldInvokePropertyChangedForPrice()
+        {
+            var soda = new JerkedSoda();
+            Assert.PropertyChanged(soda, "Price", () => {
+                soda.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizePropertyShouldInvokePropertyChangedForCalories()
+        {
+            var soda = new JerkedSoda();
+            Assert.PropertyChanged(soda, "Calories", () => {
+                soda.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingIcePropertyShouldInvokePropertyChangedForIce()
+        {
+            var soda = new JerkedSoda();
+            Assert.PropertyChanged(soda, "Ice", () => {
+                soda.Ice = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingFlavorPropertyShouldInvokePropertyChangedForFlavor()
+        {
+            var soda = new JerkedSoda();
+            Assert.PropertyChanged(soda, "Flavor", () => {
+                soda.Flavor = SodaFlavor.RootBeer;
+            });
+        }
+
+        [Fact]
+        public void ChangingIcePropertyShouldInvokePropertyChangedForSpecialInstructions()
+        {
+            var soda = new JerkedSoda();
+            Assert.PropertyChanged(soda, "SpecialInstructions", () => {
+                soda.Ice = false;
+            });
         }
     }
 }

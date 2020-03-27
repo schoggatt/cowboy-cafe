@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using CowboyCafe.Data;
+using System.ComponentModel;
 
 namespace CowboyCafe.DataTests
 {
@@ -122,6 +123,67 @@ namespace CowboyCafe.DataTests
             if (!ice && !roomForCream) Assert.Empty(coffee.SpecialInstructions);
             if (ice && !roomForCream || !ice && roomForCream) Assert.Single(coffee.SpecialInstructions);
             if (ice && roomForCream) Assert.Equal(2, coffee.SpecialInstructions.Count);
+        }
+
+        [Fact]
+        public void CowboyCoffeeImplementsINotifyPropertyChanged()
+        {
+            var coffee = new CowboyCoffee();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(coffee);
+        }
+
+        [Fact]
+        public void ChangingSizePropertyShouldInvokePropertyChangedForPrice()
+        {
+            var coffee = new CowboyCoffee();
+            Assert.PropertyChanged(coffee, "Price", () => {
+                coffee.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizePropertyShouldInvokePropertyChangedForCalories()
+        {
+            var coffee = new CowboyCoffee();
+            Assert.PropertyChanged(coffee, "Calories", () => {
+                coffee.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingIcePropertyShouldInvokePropertyChangedForIce()
+        {
+            var coffee = new CowboyCoffee();
+            Assert.PropertyChanged(coffee, "Ice", () => {
+                coffee.Ice = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingDecafPropertyShouldInvokePropertyChangedForDecaf()
+        {
+            var coffee = new CowboyCoffee();
+            Assert.PropertyChanged(coffee, "Decaf", () => {
+                coffee.Decaf = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingCreamPropertyShouldInvokePropertyChangedForCream()
+        {
+            var coffee = new CowboyCoffee();
+            Assert.PropertyChanged(coffee, "RoomForCream", () => {
+                coffee.RoomForCream = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingIcePropertyShouldInvokePropertyChangedForSpecialInstructions()
+        {
+            var coffee = new CowboyCoffee();
+            Assert.PropertyChanged(coffee, "SpecialInstructions", () => {
+                coffee.Ice = true;
+            });
         }
     }
 }
