@@ -110,6 +110,11 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
+        /// <summary>
+        /// Triggers an item being changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnItemChanged(object sender, PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
@@ -117,6 +122,41 @@ namespace CowboyCafe.Data
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             }
+        }
+
+        /// <summary>
+        /// Representation of a string as an order
+        /// </summary>
+        /// <returns></returns>
+        public string Receipt(bool cash, double paid, double change)
+        {
+            string receipt = "";
+            receipt += OrderString + "\n";
+            receipt += DateTime.Now.ToString() + "\n\n";
+            foreach(IOrderItem item in Items)
+            {
+                receipt += string.Format("{0}   ${1:#.00}\n",item.ToString(), item.Price);
+                foreach (string instruction in item.SpecialInstructions)
+                {
+                    receipt += "   " + instruction + "\n";
+                }
+            }
+            receipt += "\n\n";
+            receipt += string.Format("Subtotal   ${0:#.00}\n", Subtotal);
+            receipt += string.Format("Total      ${0:#.00}\n", Total);
+            if (cash)
+            {
+                receipt += string.Format("\nTotal Paid     ${0:#.00}\n", paid);
+                receipt += string.Format("Total Change   ${0:#.00}\n", change);
+                receipt += string.Format("Tendered       ${0:#.00}\n", paid - change);
+                receipt += "CASH TENDERED\n\n";
+            }
+            else
+            {
+                receipt += string.Format("Tendered   ${0:#.00}\n", Total);
+                receipt += "CREDIT TENDERED\n\n";
+            }
+            return receipt;
         }
     }
 }
