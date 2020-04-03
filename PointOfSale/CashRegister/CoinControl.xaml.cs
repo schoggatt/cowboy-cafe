@@ -31,7 +31,7 @@ namespace PointOfSale.CashRegister
                 "Denomination",                     // The name of the property
                 typeof(Coins),                      // The type of the property
                 typeof(CoinControl),                // The property's control
-                new PropertyMetadata(Coins.Penny)   // The Property Medata
+                new PropertyMetadata(Coins.Penny)   // The Property Metadata
                 );
 
         /// <summary>

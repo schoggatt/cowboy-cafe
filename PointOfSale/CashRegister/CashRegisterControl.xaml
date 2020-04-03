@@ -10,7 +10,6 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
             <local:CoinControl Denomination="Penny" Quantity="{Binding Path=Pennies}"/>
@@ -29,7 +28,5 @@
             <local:BillControl Denomination="Fifty" Quantity="{Binding Path=Fifty}"/>
             <local:BillControl Denomination="Hundred" Quantity="{Binding Path=Hundred}"/>
         </StackPanel>
-        <TextBlock Text="{Binding Path=TotalValue, StringFormat=c}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Grid.Row="2" FontSize="50"/>
-        <Button Grid.Row="2" Width="150" HorizontalAlignment="Right" Name="TenderButton">Tender</Button>
     </Grid>
 </UserControl>

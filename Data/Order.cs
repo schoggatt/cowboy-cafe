@@ -156,6 +156,7 @@ namespace CowboyCafe.Data
                 receipt += string.Format("Tendered   ${0:#.00}\n", Total);
                 receipt += "CREDIT TENDERED\n\n";
             }
+            receipt += "------------------------------\n\n";
             return receipt;
         }
     }

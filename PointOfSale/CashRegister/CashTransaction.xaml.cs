@@ -1,6 +1,4 @@
-﻿using CowboyCafe.Data;
-using CowboyCafe.Data.Transactions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -16,14 +14,20 @@ using System.Windows.Shapes;
 namespace PointOfSale.CashRegister
 {
     /// <summary>
-    /// Interaction logic for CashRegisterControl.xaml
+    /// Interaction logic for CashTransaction.xaml
     /// </summary>
-    public partial class CashRegisterControl : UserControl
+    public partial class CashTransaction : UserControl
     {
-        public CashRegisterControl()
+        public CashTransaction()
         {
             InitializeComponent();
-            this.DataContext = new CashRegisterModelView();
+            TenderButton.Click += TenderButton_Click;
+        }
+
+        private void TenderButton_Click(object sender, RoutedEventArgs args)
+        {
+            var screen = new OrderControl();
+            this.Content = screen;
         }
     }
 }
