@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using PointOfSale.ExtensionMethods;
 
 namespace PointOfSale
 {
@@ -42,7 +43,15 @@ namespace PointOfSale
         /// <param name="arg"></param>
         private void CompleteOrderButton_Click(object sender, RoutedEventArgs arg)
         {
-            this.DataContext = new Order();
+            //this.DataContext = new Order(); //Should be done on the transactions completion
+            //var orderControl = this.FindAncestor<OrderControl>();
+            var screen = new TransactionControl();
+            if (DataContext is Order order)
+            {
+                screen.DataContext = order;
+                this.Content = screen;
+                //this?.SwapScreen(screen);
+            }
         }
 
         /// <summary>

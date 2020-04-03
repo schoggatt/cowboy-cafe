@@ -13,12 +13,17 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Stores the overall order number of all orders
         /// </summary>
-        private static uint orderNumberTracker = 1;
+        private static uint orderNumberTracker = 0;
 
         /// <summary>
         /// Handler for when properties change in this class
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public Order()
+        {
+            orderNumberTracker++;
+        }
 
         /// <summary>
         /// The total of all prices for items in this object
@@ -33,6 +38,17 @@ namespace CowboyCafe.Data
                     subtotal += item.Price;
                 }
                 return subtotal;
+            }
+        }
+
+        /// <summary>
+        /// The total plus tax added for this object
+        /// </summary>
+        public double Total
+        {
+            get
+            {
+                return Subtotal + (Subtotal * .16);
             }
         }
 
@@ -55,7 +71,7 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return orderNumberTracker++;
+                return orderNumberTracker;
             }
         }
 

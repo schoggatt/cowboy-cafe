@@ -31,7 +31,7 @@
 
         <Border Name="Container" Grid.Column="0" Grid.Row="1">
             <Border Name="Child">
-                <local:MenuItemSelectionControl Margin="0,0,0,169"/>
+                <local:MenuItemSelectionControl Margin="10,0,-10,169"/>
             </Border>
         </Border>
         <local:OrderSummaryControl Grid.Column ="1" Margin="10,0,-40,189" Grid.ColumnSpan="1" Grid.RowSpan="2"/>
