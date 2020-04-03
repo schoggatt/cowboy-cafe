@@ -1,5 +1,6 @@
 ﻿using CashRegister;
 using CowboyCafe.Data;
+using PointOfSale.CashRegister;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -83,7 +84,11 @@ namespace PointOfSale
         /// <param name="arg"></param>
         private void CashButton_Click(object sender, RoutedEventArgs arg)
         {
-
+            if(DataContext is Order order)
+            {
+                var screen = new CashRegisterControl();
+                this.Content = screen;
+            }
         }
     }
 }
