@@ -5,7 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.CashRegister"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             Width="100"
+             Height="70"
+             d:DesignHeight="70" d:DesignWidth="100">
     <Border Margin="5" BorderBrush="DarkGray" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
@@ -17,7 +19,7 @@
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <Border Grid.Column="1" BorderThickness="1" BorderBrush="Goldenrod" CornerRadius="50" Background="Gold" Margin="-8 0">
+            <Border Grid.Column="1" Grid.Row="0" BorderThickness="1" BorderBrush="Goldenrod" CornerRadius="50" Background="Gold" Margin="-8 0">
                 <TextBlock Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CoinControl}}, Path=Denomination}" Foreground="Goldenrod" TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
             </Border>
             <Button Grid.Row="1" Grid.Column="0" Click="OnDecreaseClicked">-</Button>

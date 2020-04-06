@@ -1,5 +1,6 @@
 ﻿using CashRegister;
 using CowboyCafe.Data;
+using CowboyCafe.Data.Transactions;
 using PointOfSale.CashRegister;
 using System;
 using System.Collections.Generic;
@@ -86,8 +87,7 @@ namespace PointOfSale
         {
             if(DataContext is Order order)
             {
-                var screen = new CashTransaction();
-                screen.DataContext = order;
+                var screen = new CashControl(order);
                 this.Content = screen;
             }
         }

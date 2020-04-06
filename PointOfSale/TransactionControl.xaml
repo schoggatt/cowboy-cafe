@@ -10,9 +10,6 @@
         <Style TargetType="ListBox">
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         </Style>
-        <Style TargetType="Button">
-            <Setter Property="Height" Value="75"/>
-        </Style>
     </UserControl.Resources>
     <StackPanel>
         <TextBlock Text="{Binding Path=OrderString}"/>
@@ -48,9 +45,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Name="CashButton">Cash</Button>
-            <Button Grid.Column="1" Name="CreditButton">Credit</Button>
-            <Button Grid.Column="2" Name="CancelButton">Cancel</Button>
+            <Button Grid.Column="0" Name="CashButton" Height="75">Cash</Button>
+            <Button Grid.Column="1" Name="CreditButton" Height="75">Credit</Button>
+            <Button Grid.Column="2" Name="CancelButton" Height="75">Cancel</Button>
         </Grid>
     </Border>
     </StackPanel>

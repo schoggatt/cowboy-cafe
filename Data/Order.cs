@@ -130,34 +130,34 @@ namespace CowboyCafe.Data
         /// <returns></returns>
         public string Receipt(bool cash, double paid, double change)
         {
-            string receipt = "";
-            receipt += OrderString + "\n";
-            receipt += DateTime.Now.ToString() + "\n\n";
+            StringBuilder sb = new StringBuilder();
+            sb.Append(OrderString + "\n");
+            sb.Append(DateTime.Now.ToString() + "\n\n");
             foreach(IOrderItem item in Items)
             {
-                receipt += string.Format("{0}   ${1:#.00}\n",item.ToString(), item.Price);
+                sb.Append(string.Format("{0}   ${1:#.00}\n",item.ToString(), item.Price));
                 foreach (string instruction in item.SpecialInstructions)
                 {
-                    receipt += "   " + instruction + "\n";
+                    sb.Append("   " + instruction + "\n");
                 }
             }
-            receipt += "\n\n";
-            receipt += string.Format("Subtotal   ${0:#.00}\n", Subtotal);
-            receipt += string.Format("Total      ${0:#.00}\n", Total);
+            sb.Append("\n\n");
+            sb.Append(string.Format("Subtotal   ${0:#.00}\n", Subtotal));
+            sb.Append(string.Format("Total      ${0:#.00}\n", Total));
             if (cash)
             {
-                receipt += string.Format("\nTotal Paid     ${0:#.00}\n", paid);
-                receipt += string.Format("Total Change   ${0:#.00}\n", change);
-                receipt += string.Format("Tendered       ${0:#.00}\n", paid - change);
-                receipt += "CASH TENDERED\n\n";
+                sb.Append(string.Format("\nTotal Given     ${0:#.00}\n", paid));
+                sb.Append(string.Format("Total Change   ${0:#.00}\n", change));
+                sb.Append(string.Format("Tendered       ${0:#.00}\n", paid - change));
+                sb.Append("CASH TENDERED\n\n");
             }
             else
             {
-                receipt += string.Format("Tendered   ${0:#.00}\n", Total);
-                receipt += "CREDIT TENDERED\n\n";
+                sb.Append(string.Format("Tendered   ${0:#.00}\n", Total));
+                sb.Append("CREDIT TENDERED\n\n");
             }
-            receipt += "------------------------------\n\n";
-            return receipt;
+            sb.Append("------------------------------\n\n");
+            return sb.ToString();
         }
     }
 }

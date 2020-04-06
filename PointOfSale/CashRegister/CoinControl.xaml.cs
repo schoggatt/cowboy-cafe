@@ -1,4 +1,5 @@
 ﻿using CashRegister;
+using CowboyCafe.Data.Transactions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -74,6 +75,11 @@ namespace PointOfSale.CashRegister
         public void OnIncreaseClicked(object sender, RoutedEventArgs args)
         {
             Quantity++;
+            if (DataContext is UserCashInputModelView view)
+            {
+                if (view.isCustomerInput == true) view.AddCoins((Coins)GetValue(DenominationProperty));
+                else view.RemoveCoins((Coins)GetValue(DenominationProperty));
+            }
         }
 
         /// <summary>
@@ -83,7 +89,15 @@ namespace PointOfSale.CashRegister
         /// <param name="args">The event args</param>
         public void OnDecreaseClicked(object sender, RoutedEventArgs args)
         {
-            Quantity--;
+            if(Quantity > 0)
+            {
+                Quantity--;
+                if (DataContext is UserCashInputModelView view)
+                {
+                    if (view.isCustomerInput == true) view.RemoveCoins((Coins)GetValue(DenominationProperty));
+                    else view.AddCoins((Coins)GetValue(DenominationProperty));
+                }
+            }
         }
     }
 }
