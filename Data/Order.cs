@@ -148,7 +148,7 @@ namespace CowboyCafe.Data
             {
                 sb.Append(string.Format("\nTotal Given     ${0:#.00}\n", paid));
                 sb.Append(string.Format("Total Change   ${0:#.00}\n", change));
-                sb.Append(string.Format("Tendered       ${0:#.00}\n", paid - change));
+                sb.Append(string.Format("Tendered       ${0:#.00}\n", Math.Abs(paid - change)));
                 sb.Append("CASH TENDERED\n\n");
             }
             else

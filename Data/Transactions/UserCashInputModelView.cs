@@ -35,7 +35,7 @@ namespace CowboyCafe.Data.Transactions
         public bool isCustomerInput { get; set; } = true;
 
         /// <summary>
-        /// Returns a string with the total value
+        /// Returns a string with the total value 
         /// </summary>
         public string TotalValueString
         {

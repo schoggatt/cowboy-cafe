@@ -54,7 +54,9 @@ namespace PointOfSale.CashRegister
         {
             if (DataContext is UserCashInputModelView customerView)
             {
-                if(customerView.TotalValue >= order.Total)
+                double orderCost = Math.Round(order.Total, 2);
+                double registerValue = Math.Round(customerView.TotalValue, 2);
+                if (registerValue >= orderCost)
                 {
                     var screen = new ChangeControl(customerView, order);
                     this.Content = screen;

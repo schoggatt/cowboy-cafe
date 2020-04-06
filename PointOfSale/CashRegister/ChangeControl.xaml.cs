@@ -49,7 +49,8 @@ namespace PointOfSale.CashRegister
         /// <param name="arg"></param>
         private void OrderTotal_Initialized(object sender, EventArgs arg)
         {
-            TotalNeeded.Text = string.Format("Change Needed: ${0:#0.00}", customerView.TotalValue - order.Total);
+            if(customerView.TotalValue - order.Total < 0) TotalNeeded.Text = string.Format("Change Needed: ${0:#0.00}", (customerView.TotalValue - order.Total) * -1);
+            else TotalNeeded.Text = string.Format("Change Needed: ${0:#0.00}", customerView.TotalValue - order.Total);
         }
 
         /// <summary>
