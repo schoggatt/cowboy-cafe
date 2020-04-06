@@ -73,11 +73,18 @@ namespace PointOfSale.CashRegister
         /// <param name="args">The event args</param>
         public void OnIncreaseClicked(object sender, RoutedEventArgs args)
         {
-            Quantity++;
             if (DataContext is UserCashInputModelView view)
             {
-                if (view.isCustomerInput == true) view.AddBills((Bills)GetValue(DenominationProperty));
-                else view.RemoveBills((Bills)GetValue(DenominationProperty));
+                try
+                {
+                    if (view.isCustomerInput == true) view.AddBills((Bills)GetValue(DenominationProperty));
+                    else view.RemoveBills((Bills)GetValue(DenominationProperty));
+                    Quantity++;
+                }
+                catch (DrawerOverdrawException)
+                {
+                    MessageBox.Show("ERROR: Bill Overdrawn");
+                }
             }
         }
 
@@ -88,7 +95,7 @@ namespace PointOfSale.CashRegister
         /// <param name="args">The event args</param>
         public void OnDecreaseClicked(object sender, RoutedEventArgs args)
         {
-            if(Quantity > 0)
+            if (Quantity > 0)
             {
                 Quantity--;
                 if (DataContext is UserCashInputModelView view)

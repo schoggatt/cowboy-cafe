@@ -47,7 +47,7 @@ namespace CowboyCafe.Data.Transactions
             }
         }
 
-       
+
 
         //Bill properties that collect the quanity of each bill
 
