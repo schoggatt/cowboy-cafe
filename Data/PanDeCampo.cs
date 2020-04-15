@@ -89,5 +89,14 @@ namespace CowboyCafe.Data
                     throw new NotImplementedException("NOT A SIZE");
             }
         }
+
+        /// <summary>
+        /// Returns a default ToString with no size
+        /// </summary>
+        /// <returns></returns>
+        public override string DefaultString()
+        {
+            return "Pan de Campo";
+        }
     }
 }

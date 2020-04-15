@@ -40,5 +40,11 @@ namespace CowboyCafe.Data
         /// Not implemented as of now
         /// </summary>
         public List<string> SpecialInstructions => new List<string>();
+
+        /// <summary>
+        /// Returns a default ToString with no size
+        /// </summary>
+        /// <returns></returns>
+        public abstract string DefaultString();
     }
 }

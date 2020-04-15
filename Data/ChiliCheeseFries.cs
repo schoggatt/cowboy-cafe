@@ -90,5 +90,14 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Returns a default ToString with no size
+        /// </summary>
+        /// <returns></returns>
+        public override string DefaultString()
+        {
+            return "Chili Cheese Fries";
+        }
+
     }
 }

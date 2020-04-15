@@ -1,0 +1,115 @@
+﻿@page
+@using CowboyCafe.Data;
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Cowboy Cafe</h1>
+        <p>
+            We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
+            Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
+            Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty
+            Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
+        </p>
+
+        <h2>Entrees</h2>
+
+        @foreach (Entree item in Menu.Entrees())
+        {
+            <div class="menu-item">
+                <h4>@item.ToString()</h4>
+                <ul class="index-list">
+                    <li>Price - $@string.Format("{0:#.00}", item.Price)</li>
+                    <li>Calories - @item.Calories</li>
+                </ul>
+            </div>
+        }
+
+
+        <h2>Sides</h2>
+
+        @foreach (Side item in Menu.Sides())
+        {
+            <div class="menu-item">
+                <h4>@item.DefaultString()</h4>
+                <h6>Small</h6>
+                <ul class="index-list">
+                    @{
+                        item.Size = Size.Small;
+                    }
+                    <li>Price - $@string.Format("{0:#.00}", item.Price)</li>
+                    <li>Calories - @item.Calories</li>
+                </ul>
+                <h6>Medium</h6>
+                <ul class="index-list">
+                    @{
+                        item.Size = Size.Medium;
+                    }
+                    <li>Price - $@string.Format("{0:#.00}", item.Price)</li>
+                    <li>Calories - @item.Calories</li>
+                </ul>
+                <h6>Large</h6>
+                <ul class="index-list">
+                    @{
+                        item.Size = Size.Large;
+                    }
+                    <li>Price - $@string.Format("{0:#.00}", item.Price)</li>
+                    <li>Calories - @item.Calories</li>
+                </ul>
+            </div>
+        }
+
+
+
+        <h2>Drinks</h2>
+
+        @foreach (Drink item in Menu.Drinks())
+        {
+            <div class="menu-item">
+                <h4>@item.DefaultString()</h4>
+                <h6>Small</h6>
+                <ul class="index-list">
+                    @{
+                        item.Size = Size.Small;
+                    }
+                    <li>Price - $@string.Format("{0:#.00}", item.Price)</li>
+                    <li>Calories - @item.Calories</li>
+                    @if (item is TexasTea teaS)
+                    {
+                        teaS.Sweet = false;
+                        <li>Calories (Unsweet) - @item.Calories</li>
+                    }
+                </ul>
+                <h6>Medium</h6>
+                <ul class="index-list">
+                    @{
+                        item.Size = Size.Medium;
+                    }
+                    <li>Price - $@string.Format("{0:#.00}", item.Price)</li>
+                    <li>Calories - @item.Calories</li>
+                    @if (item is TexasTea teaM)
+                    {
+                        teaM.Sweet = false;
+                        <li>Calories (Unsweet) - @item.Calories</li>
+                    }
+                </ul>
+                <h6>Large</h6>
+                <ul class="index-list">
+                    @{
+                        item.Size = Size.Large;
+                    }
+                    <li>Price - $@string.Format("{0:#.00}", item.Price)</li>
+                    <li>Calories - @item.Calories</li>
+                    @if (item is TexasTea teaL)
+                    {
+                        teaL.Sweet = false;
+                        <li>Calories (Unsweet) - @item.Calories</li>
+                    }
+                </ul>
+            </div>
+        }
+
+    </div>

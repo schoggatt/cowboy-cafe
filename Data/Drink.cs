@@ -38,5 +38,12 @@ namespace CowboyCafe.Data
         /// </summary>
         public virtual bool Ice { get; set; } = true;
 
+        /// <summary>
+        /// Returns a default ToString with no size
+        /// </summary>
+        /// <returns></returns>
+        public abstract string DefaultString();
+
+  
     }
 }
