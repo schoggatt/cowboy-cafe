@@ -80,7 +80,8 @@
                     @if (item is TexasTea teaS)
                     {
                         teaS.Sweet = false;
-                        <li>Calories (Unsweet) - @item.Calories</li>
+                        <li>Calories (Unsweet) - @teaS.Calories</li>
+                        teaS.Sweet = true;
                     }
                 </ul>
                 <h6>Medium</h6>
@@ -93,7 +94,8 @@
                     @if (item is TexasTea teaM)
                     {
                         teaM.Sweet = false;
-                        <li>Calories (Unsweet) - @item.Calories</li>
+                        <li>Calories (Unsweet) - @teaM.Calories</li>
+                        teaM.Sweet = true;
                     }
                 </ul>
                 <h6>Large</h6>
@@ -106,7 +108,8 @@
                     @if (item is TexasTea teaL)
                     {
                         teaL.Sweet = false;
-                        <li>Calories (Unsweet) - @item.Calories</li>
+                        <li>Calories (Unsweet) - @teaL.Calories</li>
+                        teaL.Sweet = true;
                     }
                 </ul>
             </div>

@@ -101,6 +101,7 @@ namespace CowboyCafe.Data
             set { 
                 sweet = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sweet"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
