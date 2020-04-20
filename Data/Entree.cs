@@ -21,6 +21,14 @@ namespace CowboyCafe.Data
         /// Gets the special instructions for the entree
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
-        
+
+        /// <summary>
+        /// Default string for the object
+        /// </summary>
+        /// <returns></returns>
+        public virtual string DefaultString()
+        {
+            return ToString();
+        }
     }
 }

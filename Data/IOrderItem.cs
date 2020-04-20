@@ -17,5 +17,9 @@ namespace CowboyCafe.Data
         /// Price for a menu item
         /// </summary>
         double Price { get; }
+
+        uint Calories { get; }
+
+        string DefaultString();
     }
 }

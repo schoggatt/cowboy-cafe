@@ -43,7 +43,5 @@ namespace CowboyCafe.Data
         /// </summary>
         /// <returns></returns>
         public abstract string DefaultString();
-
-  
     }
 }
