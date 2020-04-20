@@ -22,6 +22,8 @@ namespace Website.Pages
 
         public double? PriceMax { get; set; }
 
+        public string[] Types { get; set; }
+
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)
@@ -36,9 +38,11 @@ namespace Website.Pages
             this.CaloriesMin = CaloriesMin;
             this.CaloriesMax = CaloriesMax;
             SearchTerms = Request.Query["SearchTerms"];
+            Types = Request.Query["Types"];
             Items = Menu.Search(SearchTerms);
             Items = Menu.FilterByPrice(Items, PriceMin, PriceMax);
             Items = Menu.FilterByCalories(Items, CaloriesMin, CaloriesMax);
+            Items = Menu.FilterByType(Items, Types);
         }
     }
 }

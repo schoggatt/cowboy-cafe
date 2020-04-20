@@ -5,27 +5,54 @@
     ViewData["Title"] = "Home page";
 
 }
-    <form class="test">
-        <div>
-            <input type="text" name="SearchTerms" />
+    <form id="menu-index">
+        <div class="search-bar">
+            <input type="text" name="SearchTerms" value="@Model.SearchTerms"/>
             <input type="submit" value="Search">
+
+            <h4>Type</h4>
+            <label>
+                Entree
+                <input type="checkbox" name="Types" value="Entree" checked="@Model.Types.Contains("Entree")"/>
+            </label>
+            <label>
+                Side
+                <input type="checkbox" name="Types" value="Side" checked="@Model.Types.Contains("Side")"/>
+            </label>
+            <label>
+                Drink
+                <input type="checkbox" name="Types" value="Drink" checked="@Model.Types.Contains("Drink")"/>
+            </label>
+
             <h4>Price</h4>
             <div>
                 Between
-                <input name="PriceMin" type="number" min="0" max="10" step="0.1" placeholder="min" />
+                <input name="PriceMin" type="number" min="0" max="10" step="0.1" placeholder="min" value="@Model.PriceMin"/>
                 and
-                <input name="PriceMin" type="number" min="0" max="10" step="0.1" placeholder="max" />
+                <input name="PriceMax" type="number" min="0" max="10" step="0.1" placeholder="max" value="@Model.PriceMax"/>
             </div>
             <h4>Calories</h4>
             <div>
                 Between
-                <input name="CaloriesMin" type="number" min="0" max="1000" step="10" placeholder="min" />
+                <input name="CaloriesMin" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.CaloriesMin"/>
                 and
-                <input name="CaloriesMax" type="number" min="0" max="1000" step="10" placeholder="max" />
+                <input name="CaloriesMax" type="number" min="0" max="1000" step="1" placeholder="max" value="@Model.CaloriesMax"/>
             </div>
         </div>
+        <div class="result">
+            <h1>Cowboy Cafe</h1>
+            <p>
+                We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
+                Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
+                Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty
+                Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
+            </p>
         <h3>Results</h3>
         <ul>
+            @if(Model.Items.Count() == 0)
+            {
+                <h5>No items found.</h5>
+            }
             @foreach (IOrderItem item in @Model.Items)
             {
                 
@@ -36,118 +63,7 @@
                             <li>Calories - @item.Calories</li>
                         </ul>
                     </div>
-               
             }
         </ul>
+        </div>
     </form>
-
-<div class="text-center">
-    <h1 class="display-4">Cowboy Cafe</h1>
-    <p>
-        We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
-        Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
-        Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty
-        Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
-    </p>
-
-    <h2>Entrees</h2>
-
-    @foreach (Entree item in Menu.Entrees())
-    {
-        <div class="menu-item">
-            <h4>@item.ToString()</h4>
-            <ul class="index-list">
-                <li>Price - $@string.Format("{0:#.00}", item.Price)</li>
-                <li>Calories - @item.Calories</li>
-            </ul>
-        </div>
-    }
-
-
-    <h2>Sides</h2>
-
-    @foreach (Side item in Menu.Sides())
-     {
-        <div class="menu-item">
-            <h4>@item.DefaultString()</h4>
-            <h6>Small</h6>
-            <ul class="index-list">
-                @{
-                    item.Size = Size.Small;
-                }
-                <li>Price - $@string.Format("{0:#.00}", item.Price)</li>
-                <li>Calories - @item.Calories</li>
-            </ul>
-            <h6>Medium</h6>
-            <ul class="index-list">
-                @{
-                    item.Size = Size.Medium;
-                }
-                <li>Price - $@string.Format("{0:#.00}", item.Price)</li>
-                <li>Calories - @item.Calories</li>
-            </ul>
-            <h6>Large</h6>
-            <ul class="index-list">
-                @{
-                    item.Size = Size.Large;
-                }
-                <li>Price - $@string.Format("{0:#.00}", item.Price)</li>
-                <li>Calories - @item.Calories</li>
-            </ul>
-        </div>
-    }
-
-
-
-    <h2>Drinks</h2>
-
-    @foreach (Drink item in Menu.Drinks())
-            {
-        <div class="menu-item">
-            <h4>@item.DefaultString()</h4>
-            <h6>Small</h6>
-            <ul class="index-list">
-                @{
-                    item.Size = Size.Small;
-                }
-                <li>Price - $@string.Format("{0:#.00}", item.Price)</li>
-                <li>Calories - @item.Calories</li>
-                @if (item is TexasTea teaS)
-            {
-                teaS.Sweet = false;
-                    <li>Calories (Unsweet) - @teaS.Calories</li>
-                    teaS.Sweet = true;
-            }
-            </ul>
-            <h6>Medium</h6>
-            <ul class="index-list">
-                @{
-                    item.Size = Size.Medium;
-                }
-                <li>Price - $@string.Format("{0:#.00}", item.Price)</li>
-                <li>Calories - @item.Calories</li>
-                @if (item is TexasTea teaM)
-            {
-                teaM.Sweet = false;
-                    <li>Calories (Unsweet) - @teaM.Calories</li>
-                    teaM.Sweet = true;
-            }
-            </ul>
-            <h6>Large</h6>
-            <ul class="index-list">
-                @{
-                    item.Size = Size.Large;
-                }
-                <li>Price - $@string.Format("{0:#.00}", item.Price)</li>
-                <li>Calories - @item.Calories</li>
-                @if (item is TexasTea teaL)
-            {
-                teaL.Sweet = false;
-                    <li>Calories (Unsweet) - @teaL.Calories</li>
-                    teaL.Sweet = true;
-            }
-            </ul>
-        </div>
-    }
-
-</div>

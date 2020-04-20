@@ -35,10 +35,47 @@ namespace CowboyCafe.Data
         {
             List<IOrderItem> menuList = new List<IOrderItem>();
 
-            menuList.Add(new CornDodgers());
-            menuList.Add(new ChiliCheeseFries());
-            menuList.Add(new BakedBeans());
-            menuList.Add(new PanDeCampo());
+            //Sides
+
+            CornDodgers dodgersS = new CornDodgers();
+            dodgersS.Size = Size.Small;
+            menuList.Add(dodgersS);
+            CornDodgers dodgersM = new CornDodgers();
+            dodgersM.Size = Size.Medium;
+            menuList.Add(dodgersM);
+            CornDodgers dodgersL = new CornDodgers();
+            dodgersL.Size = Size.Large;
+            menuList.Add(dodgersL);
+
+            ChiliCheeseFries chiliS = new ChiliCheeseFries();
+            chiliS.Size = Size.Small;
+            menuList.Add(chiliS);
+            ChiliCheeseFries chiliM = new ChiliCheeseFries();
+            chiliM.Size = Size.Medium;
+            menuList.Add(chiliM);
+            ChiliCheeseFries chiliL = new ChiliCheeseFries();
+            chiliL.Size = Size.Large;
+            menuList.Add(chiliL);
+
+            BakedBeans bakedS = new BakedBeans();
+            bakedS.Size = Size.Small;
+            menuList.Add(bakedS);
+            BakedBeans bakedM = new BakedBeans();
+            bakedM.Size = Size.Medium;
+            menuList.Add(bakedM);
+            BakedBeans bakedL = new BakedBeans();
+            bakedL.Size = Size.Large;
+            menuList.Add(bakedL);
+
+            PanDeCampo campoS = new PanDeCampo();
+            campoS.Size = Size.Small;
+            menuList.Add(campoS);
+            PanDeCampo campoM = new PanDeCampo();
+            campoM.Size = Size.Medium;
+            menuList.Add(campoM);
+            PanDeCampo campoL = new PanDeCampo();
+            campoL.Size = Size.Large;
+            menuList.Add(campoL);
 
             return menuList;
         }
@@ -51,10 +88,60 @@ namespace CowboyCafe.Data
         {
             List<IOrderItem> menuList = new List<IOrderItem>();
 
-            menuList.Add(new JerkedSoda());
-            menuList.Add(new Water());
-            menuList.Add(new CowboyCoffee());
-            menuList.Add(new TexasTea());
+            //Drinks
+
+            JerkedSoda sodaS = new JerkedSoda();
+            sodaS.Size = Size.Small;
+            menuList.Add(sodaS);
+            JerkedSoda sodaM = new JerkedSoda();
+            sodaM.Size = Size.Medium;
+            menuList.Add(sodaM);
+            JerkedSoda sodaL = new JerkedSoda();
+            sodaL.Size = Size.Large;
+            menuList.Add(sodaL);
+
+            Water waterS = new Water();
+            waterS.Size = Size.Small;
+            menuList.Add(waterS);
+            Water waterM = new Water();
+            waterM.Size = Size.Medium;
+            menuList.Add(waterM);
+            Water waterL = new Water();
+            waterL.Size = Size.Large;
+            menuList.Add(waterL);
+
+            CowboyCoffee coffeeS = new CowboyCoffee();
+            coffeeS.Size = Size.Small;
+            menuList.Add(coffeeS);
+            CowboyCoffee coffeeM = new CowboyCoffee();
+            coffeeM.Size = Size.Medium;
+            menuList.Add(coffeeM);
+            CowboyCoffee coffeeL = new CowboyCoffee();
+            coffeeL.Size = Size.Large;
+            menuList.Add(coffeeL);
+
+            TexasTea teaS = new TexasTea();
+            teaS.Size = Size.Small;
+            menuList.Add(teaS);
+            TexasTea teaM = new TexasTea();
+            teaM.Size = Size.Medium;
+            menuList.Add(teaM);
+            TexasTea teaL = new TexasTea();
+            teaL.Size = Size.Large;
+            menuList.Add(teaL);
+
+            TexasTea teaSUS = new TexasTea();
+            teaSUS.Size = Size.Small;
+            teaSUS.Sweet = false;
+            menuList.Add(teaSUS);
+            TexasTea teaMUS = new TexasTea();
+            teaMUS.Size = Size.Medium;
+            teaMUS.Sweet = false;
+            menuList.Add(teaMUS);
+            TexasTea teaLUS = new TexasTea();
+            teaLUS.Size = Size.Large;
+            teaLUS.Sweet = false;
+            menuList.Add(teaLUS);
 
             return menuList;
         }
@@ -65,6 +152,8 @@ namespace CowboyCafe.Data
         /// <returns></returns>
         public static IEnumerable<IOrderItem> CompleteMenu()
         {
+            //Entrees
+
             List<IOrderItem> menuList = new List<IOrderItem>();
             menuList.Add(new CowpokeChili());
             menuList.Add(new AngryChicken());
@@ -74,31 +163,102 @@ namespace CowboyCafe.Data
             menuList.Add(new DakotaDoubleBurger());
             menuList.Add(new RustlersRibs());
 
-            CornDodgers dodgers = new CornDodgers();
-            dodgers.Size = Size.Small;
-            menuList.Add(dodgers);
-            dodgers.Size = Size.Medium;
-            menuList.Add(dodgers);
-            dodgers.Size = Size.Large;
-            menuList.Add(dodgers);
+            //Sides
 
-            ChiliCheeseFries chili = new ChiliCheeseFries();
-            chili.Size = Size.Small;
-            menuList.Add(chili);
-            chili.Size = Size.Medium;
-            menuList.Add(chili);
-            chili.Size = Size.Large;
-            menuList.Add(chili);
+            CornDodgers dodgersS = new CornDodgers();
+            dodgersS.Size = Size.Small;
+            menuList.Add(dodgersS);
+            CornDodgers dodgersM = new CornDodgers();
+            dodgersM.Size = Size.Medium;
+            menuList.Add(dodgersM);
+            CornDodgers dodgersL = new CornDodgers();
+            dodgersL.Size = Size.Large;
+            menuList.Add(dodgersL);
 
-            /*menuList.Add(new CornDodgers());
-            menuList.Add(new ChiliCheeseFries());
-            menuList.Add(new BakedBeans());
-            menuList.Add(new PanDeCampo());
+            ChiliCheeseFries chiliS = new ChiliCheeseFries();
+            chiliS.Size = Size.Small;
+            menuList.Add(chiliS);
+            ChiliCheeseFries chiliM = new ChiliCheeseFries();
+            chiliM.Size = Size.Medium;
+            menuList.Add(chiliM);
+            ChiliCheeseFries chiliL = new ChiliCheeseFries();
+            chiliL.Size = Size.Large;
+            menuList.Add(chiliL);
 
-            menuList.Add(new JerkedSoda());
-            menuList.Add(new Water());
-            menuList.Add(new CowboyCoffee());
-            menuList.Add(new TexasTea());*/
+            BakedBeans bakedS = new BakedBeans();
+            bakedS.Size = Size.Small;
+            menuList.Add(bakedS);
+            BakedBeans bakedM = new BakedBeans();
+            bakedM.Size = Size.Medium;
+            menuList.Add(bakedM);
+            BakedBeans bakedL = new BakedBeans();
+            bakedL.Size = Size.Large;
+            menuList.Add(bakedL);
+
+            PanDeCampo campoS = new PanDeCampo();
+            campoS.Size = Size.Small;
+            menuList.Add(campoS);
+            PanDeCampo campoM = new PanDeCampo();
+            campoM.Size = Size.Medium;
+            menuList.Add(campoM);
+            PanDeCampo campoL = new PanDeCampo();
+            campoL.Size = Size.Large;
+            menuList.Add(campoL);
+
+            //Drinks
+
+            JerkedSoda sodaS = new JerkedSoda();
+            sodaS.Size = Size.Small;
+            menuList.Add(sodaS);
+            JerkedSoda sodaM = new JerkedSoda();
+            sodaM.Size = Size.Medium;
+            menuList.Add(sodaM);
+            JerkedSoda sodaL = new JerkedSoda();
+            sodaL.Size = Size.Large;
+            menuList.Add(sodaL);
+
+            Water waterS = new Water();
+            waterS.Size = Size.Small;
+            menuList.Add(waterS);
+            Water waterM = new Water();
+            waterM.Size = Size.Medium;
+            menuList.Add(waterM);
+            Water waterL = new Water();
+            waterL.Size = Size.Large;
+            menuList.Add(waterL);
+
+            CowboyCoffee coffeeS = new CowboyCoffee();
+            coffeeS.Size = Size.Small;
+            menuList.Add(coffeeS);
+            CowboyCoffee coffeeM = new CowboyCoffee();
+            coffeeM.Size = Size.Medium;
+            menuList.Add(coffeeM);
+            CowboyCoffee coffeeL = new CowboyCoffee();
+            coffeeL.Size = Size.Large;
+            menuList.Add(coffeeL);
+
+            TexasTea teaS = new TexasTea();
+            teaS.Size = Size.Small;
+            menuList.Add(teaS);
+            TexasTea teaM = new TexasTea();
+            teaM.Size = Size.Medium;
+            menuList.Add(waterM);
+            TexasTea teaL = new TexasTea();
+            teaL.Size = Size.Large;
+            menuList.Add(teaL);
+
+            TexasTea teaSUS = new TexasTea();
+            teaSUS.Size = Size.Small;
+            teaSUS.Sweet = false;
+            menuList.Add(teaSUS);
+            TexasTea teaMUS = new TexasTea();
+            teaMUS.Size = Size.Medium;
+            teaMUS.Sweet = false;
+            menuList.Add(teaMUS);
+            TexasTea teaLUS = new TexasTea();
+            teaLUS.Size = Size.Large;
+            teaLUS.Sweet = false;
+            menuList.Add(teaLUS);
 
             return menuList;
         }
@@ -120,17 +280,35 @@ namespace CowboyCafe.Data
             return results;
         }
 
-        public static IEnumerable<IOrderItem> FilterByType(IEnumerable<IOrderItem> items, string type)
+        public static IEnumerable<IOrderItem> FilterByType(IEnumerable<IOrderItem> items, string[] types)
         {
-            // If no filter is specified, just return the provided collection
-            if (type == null || type == "") return items;
-            // Filter the supplied collection of movies
-            List<IOrderItem> results = new List<IOrderItem>();
-            foreach (IOrderItem item in items)
+            if (types == null || types.Length == 0) return items;
+            List<IOrderItem> result = new List<IOrderItem>();
+            foreach (string type in types)
             {
-                
+                switch (type)
+                {
+                    case "Entree":
+                        foreach (IOrderItem item in items)
+                        {
+                            if(item is Entree) result.Add(item);
+                        }
+                        break;
+                    case "Side":
+                        foreach (IOrderItem item in items)
+                        {
+                            if (item is Side) result.Add(item);
+                        }
+                        break;
+                    case "Drink":
+                        foreach (IOrderItem item in items)
+                        {
+                            if (item is Drink) result.Add(item);
+                        }
+                        break;
+                }
             }
-            return results;
+            return result;
         }
 
         public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, double? min, double? max)
