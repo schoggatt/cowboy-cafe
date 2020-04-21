@@ -13,29 +13,25 @@ namespace CowboyCafe.DataTests.UnitTests
         [Fact]
         public void ShouldReturnAllItems()
         {
-            var items = Menu.CompleteMenu();
+            var items = Menu.All;
             var result = Menu.All;
 
-            var r = items.SequenceEqual(result);
-
-            Assert.True(r);
+            bool val = result.Contains(new CowboyCoffee());
+            Assert.True(val);
         }
 
-        [Fact]
-        public void ShouldReturnAllEntrees()
+        [Theory]
+        [InlineData("Entree")]
+        public void ShouldReturnAllOfType(string type)
         {
-            var items = Menu.Entrees();
-            var result = new List<IOrderItem>();
-
-            result.Add(new CowpokeChili());
-            result.Add(new AngryChicken());
-            result.Add(new PecosPulledPork());
-            result.Add(new TrailBurger());
-            result.Add(new TexasTripleBurger());
-            result.Add(new DakotaDoubleBurger());
-            result.Add(new RustlersRibs());
-
-            Assert.True(items.SequenceEqual(result));
+            foreach(IOrderItem item in Menu.Entrees())
+            {
+                if (!(item is Entree))
+                {
+                    Assert.False(false);
+                }
+            }
+            Assert.True(true);
         }
 
         [Fact]
