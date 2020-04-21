@@ -24,7 +24,20 @@ namespace CowboyCafe.DataTests.UnitTests
         [InlineData("Entree")]
         public void ShouldReturnAllOfType(string type)
         {
-            foreach(IOrderItem item in Menu.Entrees())
+            var list = new List<IOrderItem>();
+            switch(type)
+            {
+                case "Entree":
+                    list = (List<IOrderItem>)Menu.Entrees();
+                    break;
+                case "Side":
+                    list = (List<IOrderItem>)Menu.Sides();
+                    break;
+                case "Drink":
+                    list = (List<IOrderItem>)Menu.Drinks();
+                    break;
+            }
+            foreach(IOrderItem item in list)
             {
                 if (!(item is Entree))
                 {
