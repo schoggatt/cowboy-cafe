@@ -10,6 +10,17 @@ namespace CowboyCafe.Data
     public static class Menu
     {
         /// <summary>
+        /// Returns a list of all items
+        /// </summary>
+        public static IEnumerable<IOrderItem> All
+        {
+            get
+            {
+                return Menu.CompleteMenu();
+            }
+        }
+
+        /// <summary>
         /// Returns a list of all the entrees
         /// </summary>
         /// <returns></returns>
@@ -263,13 +274,16 @@ namespace CowboyCafe.Data
             return menuList;
         }
 
+        /// <summary>
+        /// Searches through the list for the given terms
+        /// </summary>
+        /// <param name="terms"></param>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> Search(string terms)
         {
             List<IOrderItem> results = new List<IOrderItem>();
 
-            // Return all movies if there are no search terms
             if (terms == null) return Menu.CompleteMenu();
-            // return each movie in the database containing the terms substring
             foreach (IOrderItem item in Menu.CompleteMenu())
             {
                 if (item.ToString() != null && item.ToString().Contains(terms, StringComparison.InvariantCultureIgnoreCase))
@@ -280,6 +294,12 @@ namespace CowboyCafe.Data
             return results;
         }
 
+        /// <summary>
+        /// Filters the given list by a type i.e Side, Drink, Entree
+        /// </summary>
+        /// <param name="items"></param>
+        /// <param name="types"></param>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> FilterByType(IEnumerable<IOrderItem> items, string[] types)
         {
             if (types == null || types.Length == 0) return items;
@@ -306,17 +326,25 @@ namespace CowboyCafe.Data
                             if (item is Drink) result.Add(item);
                         }
                         break;
+                    default:
+                        return items;
                 }
             }
             return result;
         }
 
+        /// <summary>
+        /// Filters by a minimum and maximum calorie mount
+        /// </summary>
+        /// <param name="items"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, double? min, double? max)
         {
             if (min == null && max == null) return items;
             var results = new List<IOrderItem>();
 
-            // only a maximum specified
             if (min == null)
             {
                 foreach (IOrderItem item in items)
@@ -325,7 +353,6 @@ namespace CowboyCafe.Data
                 }
                 return results;
             }
-            // only a minimum specified 
             if (max == null)
             {
                 foreach (IOrderItem item in items)
@@ -334,7 +361,6 @@ namespace CowboyCafe.Data
                 }
                 return results;
             }
-            // Both minimum and maximum specified
             foreach (IOrderItem item in items)
             {
                 if (item.Calories >= min && item.Calories <= max)
@@ -345,12 +371,18 @@ namespace CowboyCafe.Data
             return results;
         }
 
+        /// <summary>
+        /// Sorts by a minimum or maximum price
+        /// </summary>
+        /// <param name="items"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
         {
             if (min == null && max == null) return items;
             var results = new List<IOrderItem>();
 
-            // only a maximum specified
             if (min == null)
             {
                 foreach (IOrderItem item in items)
@@ -359,7 +391,6 @@ namespace CowboyCafe.Data
                 }
                 return results;
             }
-            // only a minimum specified 
             if (max == null)
             {
                 foreach (IOrderItem item in items)
@@ -368,7 +399,6 @@ namespace CowboyCafe.Data
                 }
                 return results;
             }
-            // Both minimum and maximum specified
             foreach (IOrderItem item in items)
             {
                 if (item.Price >= min && item.Price <= max)

@@ -11,17 +11,39 @@ namespace Website.Pages
 {
     public class IndexModel : PageModel
     {
+        /// <summary>
+        /// All items in the current filter
+        /// </summary>
         public IEnumerable<IOrderItem> Items { get; protected set; }
+
+        /// <summary>
+        /// Search bar value
+        /// </summary>
         public string SearchTerms { get; set; }
 
+        /// <summary>
+        /// Minimum calories
+        /// </summary>
         public double? CaloriesMin { get; set; }
 
+        /// <summary>
+        /// Maximum calories
+        /// </summary>
         public double? CaloriesMax { get; set; }
 
+        /// <summary>
+        /// Minimum price
+        /// </summary>
         public double? PriceMin { get; set; }
 
+        /// <summary>
+        /// Maximum price
+        /// </summary>
         public double? PriceMax { get; set; }
 
+        /// <summary>
+        /// Types to filter by string
+        /// </summary>
         public string[] Types { get; set; }
 
         private readonly ILogger<IndexModel> _logger;
@@ -31,6 +53,13 @@ namespace Website.Pages
             _logger = logger;
         }
 
+        /// <summary>
+        /// Determines the current filter on the index page
+        /// </summary>
+        /// <param name="PriceMin"></param>
+        /// <param name="PriceMax"></param>
+        /// <param name="CaloriesMin"></param>
+        /// <param name="CaloriesMax"></param>
         public void OnGet(double? PriceMin, double? PriceMax, double? CaloriesMin, double? CaloriesMax)
         {
             this.PriceMin = PriceMin;
