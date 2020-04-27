@@ -1,14 +1,19 @@
-﻿using System;
+﻿using CowboyCafe.Data;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using CowboyCafe.Data;
 using Xunit;
 
 namespace CowboyCafe.DataTests.UnitTests
 {
+    /// <summary>
+    /// Tests for the menu class
+    /// </summary>
     public class MenuTests
     {
+       
+        /// <summary>
+        /// Returns the entire menu
+        /// </summary>
 
         [Fact]
         public void ShouldReturnAllItems()
@@ -16,12 +21,18 @@ namespace CowboyCafe.DataTests.UnitTests
             var items = Menu.All;
             var result = Menu.All;
 
-            bool val = result.Contains(new CowboyCoffee());
-            Assert.True(val);
+            Assert.Equal(items.Count(), result.Count());
         }
+
+        /// <summary>
+        /// Returns all of type
+        /// </summary>
+        /// <param name="type"></param>
 
         [Theory]
         [InlineData("Entree")]
+        [InlineData("Side")]
+        [InlineData("Drink")]
         public void ShouldReturnAllOfType(string type)
         {
             var list = new List<IOrderItem>();
@@ -39,72 +50,107 @@ namespace CowboyCafe.DataTests.UnitTests
             }
             foreach(IOrderItem item in list)
             {
-                if (!(item is Entree))
+                if(type == "Entree")
                 {
-                    Assert.False(false);
+                    if (!(item is Entree))
+                    {
+                        Assert.False(false);
+                    }
+                }
+                if (type == "Side")
+                {
+                    if (!(item is Side))
+                    {
+                        Assert.False(false);
+                    }
+                }
+                if (type == "Drink")
+                {
+                    if (!(item is Drink))
+                    {
+                        Assert.False(false);
+                    }
                 }
             }
             Assert.True(true);
         }
 
+        /// <summary>
+        /// Returns all entrees
+        /// </summary>
+
+        [Fact]
+        public void ShouldReturnAllEntrees()
+        {
+            Assert.Collection(
+                Menu.Entrees(),
+                (cc) => { Assert.IsType<CowpokeChili>(cc); },
+                (ac) => { Assert.IsType<AngryChicken>(ac); },
+                (ppp) => { Assert.IsType<PecosPulledPork>(ppp); },
+                (tb) => { Assert.IsType<TrailBurger>(tb); },
+                (ttb) => { Assert.IsType<TexasTripleBurger>(ttb); },
+                (ddb) => { Assert.IsType<DakotaDoubleBurger>(ddb); },
+                (rr) => { Assert.IsType<RustlersRibs>(rr); }
+            );
+        }
+
+        /// <summary>
+        /// Returns all sides
+        /// </summary>
+
         [Fact]
         public void ShouldReturnAllSides()
         {
-            var items = Menu.Sides();
-            var result = new List<IOrderItem>();
-
-            CornDodgers dodgersS = new CornDodgers();
-            dodgersS.Size = Size.Small;
-            result.Add(dodgersS);
-            CornDodgers dodgersM = new CornDodgers();
-            dodgersM.Size = Size.Medium;
-            result.Add(dodgersM);
-            CornDodgers dodgersL = new CornDodgers();
-            dodgersL.Size = Size.Large;
-            result.Add(dodgersL);
-
-            ChiliCheeseFries chiliS = new ChiliCheeseFries();
-            chiliS.Size = Size.Small;
-            result.Add(chiliS);
-            ChiliCheeseFries chiliM = new ChiliCheeseFries();
-            chiliM.Size = Size.Medium;
-            result.Add(chiliM);
-            ChiliCheeseFries chiliL = new ChiliCheeseFries();
-            chiliL.Size = Size.Large;
-            result.Add(chiliL);
-
-            BakedBeans bakedS = new BakedBeans();
-            bakedS.Size = Size.Small;
-            result.Add(bakedS);
-            BakedBeans bakedM = new BakedBeans();
-            bakedM.Size = Size.Medium;
-            result.Add(bakedM);
-            BakedBeans bakedL = new BakedBeans();
-            bakedL.Size = Size.Large;
-            result.Add(bakedL);
-
-            PanDeCampo campoS = new PanDeCampo();
-            campoS.Size = Size.Small;
-            result.Add(campoS);
-            PanDeCampo campoM = new PanDeCampo();
-            campoM.Size = Size.Medium;
-            result.Add(campoM);
-            PanDeCampo campoL = new PanDeCampo();
-            campoL.Size = Size.Large;
-            result.Add(campoL);
-
-            Assert.True(items.SequenceEqual(result));
+            Assert.Collection(
+                Menu.Sides(),
+                (cdS) => { Assert.IsType<CornDodgers>(cdS); }, 
+                (cdM) => { Assert.IsType<CornDodgers>(cdM); },
+                (cdL) => { Assert.IsType<CornDodgers>(cdL); },
+                (ccfS) => { Assert.IsType<ChiliCheeseFries>(ccfS); },
+                (ccfM) => { Assert.IsType<ChiliCheeseFries>(ccfM); },
+                (ccfL) => { Assert.IsType<ChiliCheeseFries>(ccfL); },
+                (bbS) => { Assert.IsType<BakedBeans>(bbS); },
+                (bbM) => { Assert.IsType<BakedBeans>(bbM); },
+                (bbL) => { Assert.IsType<BakedBeans>(bbL); },
+                (pdcS) => { Assert.IsType<PanDeCampo>(pdcS); },
+                (pdcM) => { Assert.IsType<PanDeCampo>(pdcM); },
+                (pdcL) => { Assert.IsType<PanDeCampo>(pdcL); }
+            ); 
         }
+
+        /// <summary>
+        /// Returns all drinks
+        /// </summary>
 
         [Fact]
         public void ShouldReturnAllDrinks()
         {
-            var items = Menu.Drinks();
-            var result = new List<IOrderItem>();
-            
-
-            Assert.True(items.SequenceEqual(result));
+            Assert.Collection(
+                Menu.Drinks(),
+                (jsS) => { Assert.IsType<JerkedSoda>(jsS); },
+                (jsM) => { Assert.IsType<JerkedSoda>(jsM); },
+                (jsL) => { Assert.IsType<JerkedSoda>(jsL); },
+                (wS) => { Assert.IsType<Water>(wS); },
+                (wM) => { Assert.IsType<Water>(wM); },
+                (wL) => { Assert.IsType<Water>(wL); },
+                (ccS) => { Assert.IsType<CowboyCoffee>(ccS); },
+                (ccM) => { Assert.IsType<CowboyCoffee>(ccM); },
+                (ccL) => { Assert.IsType<CowboyCoffee>(ccL); },
+                (ttS) => { Assert.IsType<TexasTea>(ttS); },
+                (ttM) => { Assert.IsType<TexasTea>(ttM); },
+                (ttL) => { Assert.IsType<TexasTea>(ttL); },
+                (ttSS) => { Assert.IsType<TexasTea>(ttSS); },
+                (ttSM) => { Assert.IsType<TexasTea>(ttSM); },
+                (ttSL) => { Assert.IsType<TexasTea>(ttSL); }
+            );
         }
+
+        /// <summary>
+        /// Filters by calories
+        /// </summary>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="expected"></param>
 
         [Theory]
         [InlineData(750, 1000, 1)]
@@ -123,6 +169,13 @@ namespace CowboyCafe.DataTests.UnitTests
             }
         }
 
+        /// <summary>
+        /// Filters by price
+        /// </summary>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="expected"></param>
+
         [Theory]
         [InlineData(4, 5, 1)]
         [InlineData(null, .5, 4)]
@@ -140,6 +193,12 @@ namespace CowboyCafe.DataTests.UnitTests
             }
         }
 
+        /// <summary>
+        /// Filters by term
+        /// </summary>
+        /// <param name="term"></param>
+        /// <param name="expected"></param>
+
         [Theory]
         [InlineData("Pecos", 1)]
         [InlineData(null, 34)]
@@ -156,6 +215,12 @@ namespace CowboyCafe.DataTests.UnitTests
                 Assert.Equal(expected, method.Count);
             }
         }
+
+        /// <summary>
+        /// Checks if the list is sorted by type
+        /// </summary>
+        /// <param name="types"></param>
+        /// <param name="expected"></param>
 
         [Theory]
         [InlineData(new string[] {"Entree"} , 7)]
